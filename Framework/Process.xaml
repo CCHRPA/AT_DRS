@@ -207,7 +207,7 @@
       <AssemblyReference>System.Diagnostics.TextWriterTraceListener</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Flowchart DisplayName="Process" sap:VirtualizedContainerService.HintSize="1170.4,667.2" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+  <Flowchart DisplayName="Process" sap:VirtualizedContainerService.HintSize="1170.4,411.2" sap2010:WorkflowViewState.IdRef="Flowchart_1">
     <Flowchart.Variables>
       <Variable x:TypeArguments="x:Int32" Name="iPeriod" />
       <Variable x:TypeArguments="x:Int32" Name="iYear" />
@@ -250,39 +250,39 @@
           <av:PointCollection x:Key="ConnectorLocation">140.2,295.4 140.2,345</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <Sequence DisplayName="Downloading latest SKU dashboard file and latest product placement template" sap:VirtualizedContainerService.HintSize="110.4,70.4" sap2010:WorkflowViewState.IdRef="Sequence_426">
+      <Sequence DisplayName="Downloading latest SKU dashboard file and latest product placement template" sap:VirtualizedContainerService.HintSize="487.20000000000005,1585.6" sap2010:WorkflowViewState.IdRef="Sequence_426">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <If sap2010:Annotation.AnnotationText="it downloads the latest SKU file from the sharepoint otherwise if its a manual run , upload the specified SKU and Product placement template according to the manual run date to the Storage bucket on the test orchestrator." Condition="[in_bManualRun = True]" DisplayName="If it's a manual run" sap:VirtualizedContainerService.HintSize="450,1422" sap2010:WorkflowViewState.IdRef="If_38">
+        <If sap2010:Annotation.AnnotationText="it downloads the latest SKU file from the sharepoint otherwise if its a manual run , upload the specified SKU and Product placement template according to the manual run date to the Storage bucket on the test orchestrator." Condition="[in_bManualRun = True]" DisplayName="If it's a manual run" sap:VirtualizedContainerService.HintSize="453.6,1525.6" sap2010:WorkflowViewState.IdRef="If_38">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
           <If.Then>
-            <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,554" sap2010:WorkflowViewState.IdRef="Sequence_423">
+            <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,558.4" sap2010:WorkflowViewState.IdRef="Sequence_423">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="382,173" sap2010:WorkflowViewState.IdRef="LogMessage_59" Message="[&quot;Downloading SKU and Product placement template files from storage bucket as it is a manual run&quot;]" />
-              <ucas:DownloadStorageFile TimeoutMS="{x:Null}" Destination="[in_sTempPath+&quot;SKU Dashboard.xlsx&quot;]" DisplayName="Download Storage File" sap:VirtualizedContainerService.HintSize="382,165" sap2010:WorkflowViewState.IdRef="DownloadStorageFile_1" Path="SKU Dashboard.xlsx" StorageBucketName="AT_DRS" />
-              <ucas:DownloadStorageFile TimeoutMS="{x:Null}" Destination="[in_sTempPath+&quot;Product placement template.csv&quot;]" DisplayName="Download Storage File" sap:VirtualizedContainerService.HintSize="382,156" sap2010:WorkflowViewState.IdRef="DownloadStorageFile_2" Path="Product placement template.csv" StorageBucketName="AT_DRS" />
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="382.4,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_59" Message="[&quot;Downloading SKU and Product placement template files from storage bucket as it is a manual run&quot;]" />
+              <ucas:DownloadStorageFile TimeoutMS="{x:Null}" Destination="[in_sTempPath+&quot;SKU Dashboard.xlsx&quot;]" DisplayName="Download Storage File" sap:VirtualizedContainerService.HintSize="382.4,166.4" sap2010:WorkflowViewState.IdRef="DownloadStorageFile_1" Path="SKU Dashboard.xlsx" StorageBucketName="AT_DRS" />
+              <ucas:DownloadStorageFile TimeoutMS="{x:Null}" Destination="[in_sTempPath+&quot;Product placement template.csv&quot;]" DisplayName="Download Storage File" sap:VirtualizedContainerService.HintSize="382.4,157.6" sap2010:WorkflowViewState.IdRef="DownloadStorageFile_2" Path="Product placement template.csv" StorageBucketName="AT_DRS" />
             </Sequence>
           </If.Then>
           <If.Else>
-            <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,650" sap2010:WorkflowViewState.IdRef="Sequence_425">
+            <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,729.6" sap2010:WorkflowViewState.IdRef="Sequence_425">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="382,173" sap2010:WorkflowViewState.IdRef="LogMessage_60" Message="[&quot;Downloading SKU and Product placement template files from Sharepoint&quot;]" />
-              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Downloading Product placement template.csv from AT_DRS sharepoint &#xA;This template must be uploaded by business people to this sharepoint directory whenever its updated" DisplayName="SharePointDownload_MicrosoftOffice365 - Invoke Workflow File (Lib\SharePointDownload_MicrosoftOffice365.xaml)" sap:VirtualizedContainerService.HintSize="382,249" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_73" UnSafe="False" WorkflowFileName="Lib\SharePointDownload_MicrosoftOffice365.xaml">
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="382.4,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_60" Message="[&quot;Downloading SKU and Product placement template files from Sharepoint&quot;]" />
+              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Downloading Product placement template.csv from AT_DRS sharepoint &#xA;This template must be uploaded by business people to this sharepoint directory whenever its updated" DisplayName="SharePointDownload_MicrosoftOffice365 - Invoke Workflow File (Lib\SharePointDownload_MicrosoftOffice365.xaml)" sap:VirtualizedContainerService.HintSize="382.4,252" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_73" UnSafe="False" WorkflowFileName="Lib\SharePointDownload_MicrosoftOffice365.xaml">
                 <ui:InvokeWorkflowFile.Arguments>
                   <InArgument x:TypeArguments="x:String" x:Key="in_sAssetName">[in_Config("SPCreds2").ToString]</InArgument>
                   <InArgument x:TypeArguments="x:String" x:Key="in_sSharePointDirectory">[in_Config("SP_DRS_URL").ToString.TrimEnd("/"c)]</InArgument>
@@ -299,14 +299,22 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </ui:InvokeWorkflowFile>
-              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SharePoint_Download - Invoke Workflow File (Lib\SharePoint_Download.xaml)" sap:VirtualizedContainerService.HintSize="382,168" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_72" UnSafe="False" WorkflowFileName="Lib\SharePoint_Download.xaml">
+              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Downloading SKU Dashboard file from SKU Dashboard AT sharepoint &#xA;This template must be uploaded by business people to this sharepoint directory whenever its updated" DisplayName="SharePointDownload_MicrosoftOffice365 - Invoke Workflow File (Lib\SharePointDownload_MicrosoftOffice365.xaml)" sap:VirtualizedContainerService.HintSize="382.4,243.2" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_79" UnSafe="False" WorkflowFileName="Lib\SharePointDownload_MicrosoftOffice365.xaml">
                 <ui:InvokeWorkflowFile.Arguments>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_sURL">[in_Config("SP_DRS_URL").ToString]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_sRelativeURL">[in_Config("SP_DRS_RelativeURL").ToString]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_sFilePath">[in_sTempPath+"Product placement template.xlsx"]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_sAssetName">[sSPCredsAsset]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_sFileName">Product placement</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_sAssetName">[in_Config("SPCreds2").ToString]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_sSharePointDirectory">[in_Config("SP_SKU_URL").ToString.TrimEnd("/"c)]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_sSharePointSpecificURL">[in_Config("SP_SKU_RelativeURL").ToString]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_sDownloadFilePath">[System.IO.Directory.GetCurrentDirectory+"\Data\Temp\SKU Dashboard.xlsx"]</InArgument>
+                  <InArgument x:TypeArguments="x:Boolean" x:Key="in_bExcludeOrInclude">False</InArgument>
+                  <InArgument x:TypeArguments="x:Boolean" x:Key="in_bFilter">True</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_sFilterWord">sku</InArgument>
+                  <InArgument x:TypeArguments="x:Boolean" x:Key="in_bFileOrFolder">False</InArgument>
                 </ui:InvokeWorkflowFile.Arguments>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
               </ui:InvokeWorkflowFile>
             </Sequence>
           </If.Else>
@@ -327,7 +335,7 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="CopyingTemplates - Invoke Workflow File (Lib\CopyingTemplates.xaml)" sap:VirtualizedContainerService.HintSize="416,168" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_55" UnSafe="False" WorkflowFileName="Lib\CopyingTemplates.xaml">
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="CopyingTemplates - Invoke Workflow File (Lib\CopyingTemplates.xaml)" sap:VirtualizedContainerService.HintSize="416,167.2" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_55" UnSafe="False" WorkflowFileName="Lib\CopyingTemplates.xaml">
               <ui:InvokeWorkflowFile.Arguments>
                 <InArgument x:TypeArguments="x:String" x:Key="in_sTemplatePath">[in_sTemplatePath]</InArgument>
                 <InArgument x:TypeArguments="x:String" x:Key="in_sMainFilePath">[in_sMainFilePath]</InArgument>
@@ -350,7 +358,7 @@
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SKU - Invoke Workflow File (Lib\SKU.xaml)" sap:VirtualizedContainerService.HintSize="416,168" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_57" UnSafe="False" WorkflowFileName="Lib\SKU.xaml">
+                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SKU - Invoke Workflow File (Lib\SKU.xaml)" sap:VirtualizedContainerService.HintSize="416,167.2" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_57" UnSafe="False" WorkflowFileName="Lib\SKU.xaml">
                   <ui:InvokeWorkflowFile.Arguments>
                     <InArgument x:TypeArguments="x:String" x:Key="in_sSKUPassword">[in_sSKUPassword]</InArgument>
                     <InArgument x:TypeArguments="x:String" x:Key="in_sSKUPath">[in_sSKUPath]</InArgument>
@@ -886,7 +894,7 @@
                                                                           <av:Size x:Key="ShapeSize">110.4,70.4</av:Size>
                                                                         </scg:Dictionary>
                                                                       </sap:WorkflowViewStateService.ViewState>
-                                                                      <Sequence DisplayName="Send Mails" sap:VirtualizedContainerService.HintSize="449.6,745.6" sap2010:WorkflowViewState.IdRef="Sequence_432">
+                                                                      <Sequence DisplayName="Send Mails" sap:VirtualizedContainerService.HintSize="110.4,70.4" sap2010:WorkflowViewState.IdRef="Sequence_432">
                                                                         <Sequence.Variables>
                                                                           <Variable x:TypeArguments="sd:DataTable" Name="data_Recipients" />
                                                                           <Variable x:TypeArguments="sd:DataRow" Name="RecipientsRow" />
@@ -898,7 +906,7 @@
                                                                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                                           </scg:Dictionary>
                                                                         </sap:WorkflowViewStateService.ViewState>
-                                                                        <c1:CCH_SMTP_External_MailCommunication DisplayName="CCH SMTP External MailCommunication" sap:VirtualizedContainerService.HintSize="416,685.6" sap2010:WorkflowViewState.IdRef="CCH_SMTP_External_MailCommunication_1" In_sMail_Body_HTML_string="&lt;html&gt;&#xD;&#xA;  &lt;body&gt;&#xD;&#xA;    &lt;p&gt;Dear Team,&lt;/p&gt;&#xD;&#xA;&#xD;&#xA;&#x9;&lt;p&gt;&#xD;&#xA;  &#x9;The DRS process for &lt;b&gt;Austria&lt;/b&gt; has been completed successfully by the robot.&#xD;&#xA;&#x9;Please find the output files in the respective Sharepoint.&#xD;&#xA;&#x9;&lt;/p&gt;&#xD;&#xA;&#xD;&#xA;    &lt;p&gt;&#xD;&#xA;      Best regards,&lt;br&gt;&#xD;&#xA;      DRS Automation Robot&#xD;&#xA;    &lt;/p&gt;&#xD;&#xA;  &lt;/body&gt;&#xD;&#xA;&lt;/html&gt;&#xD;&#xA;" In_sMail_Subject="AT_DRS" In_sSender_Address="RPAPRD1@cchellenic.com" In_sSender_Name="RPAPRD1" in_bRecipientsFromStorage="True" in_bSendToRPA="False" in_lstAttachments="[New List(Of String)({})]" in_lstMail_BccRecipients="[New List(Of String)({})]" in_lstMail_CCRecpients="[New List(Of String)({})]" in_lstMail_ToRecipients="[New List(Of String)({})]" in_sMultipleAttachmentFolder="[Nothing]" in_sSingleAttachmentFullPath="[Nothing]" />
+                                                                        <c1:CCH_SMTP_External_MailCommunication DisplayName="CCH SMTP External MailCommunication" sap:VirtualizedContainerService.HintSize="416,685.6" sap2010:WorkflowViewState.IdRef="CCH_SMTP_External_MailCommunication_1" In_sMail_Body_HTML_string="&lt;html&gt;&#xA;  &lt;body&gt;&#xA;    &lt;p&gt;Dear Team,&lt;/p&gt;&#xA;&#xA;&#x9;&lt;p&gt;&#xA;  &#x9;The DRS process for &lt;b&gt;Austria&lt;/b&gt; has been completed successfully by the robot.&#xA;&#x9;Please find the output files in the respective Sharepoint.&#xA;&#x9;&lt;/p&gt;&#xA;&#xA;    &lt;p&gt;&#xA;      Best regards,&lt;br&gt;&#xA;      DRS Automation Robot&#xA;    &lt;/p&gt;&#xA;  &lt;/body&gt;&#xA;&lt;/html&gt;&#xA;" In_sMail_Subject="AT_DRS" In_sSender_Address="RPAPRD1@cchellenic.com" In_sSender_Name="RPAPRD1" in_bRecipientsFromStorage="True" in_bSendToRPA="False" in_lstAttachments="[New List(Of String)({})]" in_lstMail_BccRecipients="[New List(Of String)({})]" in_lstMail_CCRecpients="[New List(Of String)({})]" in_lstMail_ToRecipients="[New List(Of String)({})]" in_sMultipleAttachmentFolder="[Nothing]" in_sSingleAttachmentFullPath="[Nothing]" />
                                                                       </Sequence>
                                                                     </FlowStep>
                                                                   </FlowStep.Next>
