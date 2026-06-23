@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="BdewFqzrK0uTEkuO9dSvgQ" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="cuvl1301.eur.cchbc.com/irj/servlet/prt/portal/prtroot/pcd!3aportal_content!2fcom.sap.pct!2fplatform_add_ons!2fcom.sap.ip.bi!2fiViews!2fcom.sap.ip.bi.bex" DesignTimeRectangle="43, 999, 41, 20" DesignTimeScaleFactor="1.25" ElementType="Text" FullSelectorArgument="&lt;webctrl id='iframe_Roundtrip_9223372036563636042' tag='IFRAME' /&gt;&lt;webctrl id='DLG_VARIABLE_dlgBase_MATRLayout' tableRow='1' tag='TABLE' /&gt;&lt;webctrl id='DLG_VARIABLE_dlgBase_BTNOK' tableRow='65' tag='A' /&gt;" Guid="6d8be065-a17b-486c-9af5-a506ef83568f" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='WID1778762756489' title='BEx Web' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive">
+      <imageRef attrName="InformativeScreenshot" originalValue="e5d2bd020d01a2db992d259147c7b364.png" xmlns="">0B9VWArgdski-L1kt50kl2A</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">Click</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

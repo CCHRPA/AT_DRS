@@ -1,0 +1,23 @@
+Sub RefreshPivotTable()
+ 
+    Dim pt As PivotTable
+    Set pt = ActiveSheet.PivotTables("PivotTable1")
+ 
+    
+    With pt.PivotFields("DRS Quantity in Bottles")
+        .ClearAllFilters
+        On Error Resume Next
+        .PivotItems("0").Visible = False
+        On Error GoTo 0
+    End With
+ 
+     With ActiveSheet.PivotTables("PivotTable1") _
+        .PivotFields("Single or copacked DRS article?")
+        .ClearAllFilters
+        On Error Resume Next
+        .PivotItems("No").Visible = False
+         .PivotItems("(blank)").Visible = False
+        On Error GoTo 0
+    End With
+ 
+End Sub

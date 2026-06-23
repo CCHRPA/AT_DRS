@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="BX5wu51cX0ujGyWnFpr8ww" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="cuvl1301.eur.cchbc.com/irj/servlet/prt/portal/prtroot/pcd!3aportal_content!2fcom.sap.pct!2fplatform_add_ons!2fcom.sap.ip.bi!2fiViews!2fcom.sap.ip.bi.bex" DesignTimeRectangle="722, 613, 153, 22" DesignTimeScaleFactor="1.25" ElementType="InputBoxPassword" FullSelectorArgument="&lt;webctrl parentname='logonForm' tableRow='1' tag='TABLE' /&gt;&lt;webctrl id='logonpassfield' tableRow='3' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl parentname='logonForm' tag='TABLE' /&gt;&lt;webctrl id='logonpassfield' type='password' tag='INPUT' class='urEdfTxtEnbl' aaname='           Password            *         ' /&gt;" Guid="532e8539-dc4a-4f61-9411-68442b3a76e0" ScopeSelectorArgument="&lt;html app='chrome.exe' title='SAP NetWeaver Portal' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V4" Visibility="Interactive">
+      <TargetAnchorable.Anchors>
+        <scg:List x:TypeArguments="ITarget" Capacity="4">
+          <Target DesignTimeRectangle="512, 616, 92, 16" ElementType="Text" FuzzySelectorArgument="&lt;webctrl parentname='logonForm' tag='TABLE' /&gt;&lt;webctrl type='' tag='LABEL' class='urLblStd' aaname='           Password                    ' check:innerText='Password  *' /&gt;" Guid="ff5c570e-4ef8-4fb6-9279-eb7b9aabdb52" SearchSteps="FuzzySelector" />
+        </scg:List>
+      </TargetAnchorable.Anchors>
+      <imageRef attrName="InformativeScreenshot" originalValue="7aa279f89dc5bed607378df8aa2adc4b.png" xmlns="">0VNVvVgxHtE2nj0beJmkM0Q</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">TypeInto</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

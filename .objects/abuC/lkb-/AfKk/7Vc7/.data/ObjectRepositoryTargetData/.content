@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="UuV2Eq_c_kKRpdEhfXqFTw" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="cuvl1301.eur.cchbc.com/irj/servlet/prt/portal/prtroot/pcd!3aportal_content!2fcom.sap.pct!2fplatform_add_ons!2fcom.sap.ip.bi!2fiViews!2fcom.sap.ip.bi.bex" DesignTimeRectangle="361, 610, 168, 16" DesignTimeScaleFactor="1.25" ElementType="Text" FullSelectorArgument="&lt;webctrl id='iframe_Roundtrip_9223372036563636042' tag='IFRAME' /&gt;&lt;webctrl id='sapPopupMainId_X1' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tableRow='3' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl id='iframe_Roundtrip_9223372036563636042' tag='IFRAME' /&gt;&lt;webctrl id='sapPopupMainId_X1' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='SPAN' class='' aaname='Swap Sales document with' check:innerText='Swap Sales document with' /&gt;" Guid="fe586330-7cb5-4230-a564-ac8c52157048" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='WID1778590720104' title='BEx Web - Extended Default Ad-hoc Analysis BI 7.0' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V4" Visibility="Interactive">
+      <imageRef attrName="InformativeScreenshot" originalValue="56b54a0cb6d0d24ca68d6ab1acfb14d4.png" xmlns="">0qvsvN_ZWjEOBGG_6PKlCYA</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">Hover</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

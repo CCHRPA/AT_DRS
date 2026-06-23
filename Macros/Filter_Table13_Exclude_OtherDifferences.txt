@@ -1,0 +1,14 @@
+Sub Filter_Table13_ByArray(filterValues As Variant)
+
+    With ActiveSheet.ListObjects("Table13")
+        'Clear existing filter on column 2
+        .Range.AutoFilter Field:=2
+
+        'Apply filter using input array
+        .Range.AutoFilter _
+            Field:=2, _
+            Criteria1:=filterValues, _
+            Operator:=xlFilterValues
+    End With
+
+End Sub

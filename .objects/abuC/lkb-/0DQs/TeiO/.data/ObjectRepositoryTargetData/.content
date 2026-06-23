@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="jOIxhZO-ukS9yrsoOKAQ-A" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="cuvl1301.eur.cchbc.com/irj/servlet/prt/portal/prtroot/pcd!3aportal_content!2fcom.sap.pct!2fplatform_add_ons!2fcom.sap.ip.bi!2fiViews!2fcom.sap.ip.bi.bex" DesignTimeRectangle="808, 180, 170, 20" DesignTimeScaleFactor="1.25" ElementType="Text" FullSelectorArgument="&lt;webctrl id='iframe_Roundtrip_9223372036563636042' tag='IFRAME' /&gt;&lt;webctrl id='CONTAINER_LAYOUT_TOOLBAR_matrixLayout_gridMatrix' tableRow='1' tag='TABLE' /&gt;&lt;webctrl aaname='Export to Microsoft Excel' tableRow='1' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl id='iframe_Roundtrip_9223372036563636042' tag='IFRAME' /&gt;&lt;webctrl id='CONTAINER_LAYOUT_TOOLBAR_matrixLayout_gridMatrix' tag='TABLE' /&gt;&lt;webctrl aaname='Export to Microsoft Excel' type='' tag='A' class='urBtnStd' check:innerText='Export to Microsoft Excel' /&gt;" Guid="07776776-8cee-4f66-9ed5-4af92967fb19" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='WID1778762756489' title='BEx Web - Extended Default Ad-hoc Analysis BI 7.0' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V4" Visibility="Interactive">
+      <imageRef attrName="InformativeScreenshot" originalValue="25189006b09a8a3cd54b82d2c38b7ae6.png" xmlns="">04csSxg5zXkK6NjivPg56Tw</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">CheckState</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

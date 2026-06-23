@@ -1,0 +1,14 @@
+﻿{
+  "Name": "Swap Sales document with",
+  "Type": "Element",
+  "TaxonomyType": "Label",
+  "Id": "7Vc7Zwu5Ikq39Lf-JlVlQA",
+  "Reference": "kc-tb9gKTUqcNWjdsbFj2Q/7Vc7Zwu5Ikq39Lf-JlVlQA",
+  "ParentRef": "kc-tb9gKTUqcNWjdsbFj2Q/AfKktBoQckaou_3zl0Wc6w",
+  "Created": "2026-05-14T11:33:41.3552306Z",
+  "Updated": "2026-05-14T11:33:41.3552306Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=24.10.12.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=24.12.3.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryScreenData ContentHash="kXXeBTwtlUiuurqJQ8eKwA" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryScreenData.Data>
+    <TargetApp x:Key="TargetApp" Area="-9, -9, 1938, 1168" BrowserType="Chrome" IconBase64="iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAFgSURBVFhH7ZNBTgMxDEVzE/ZcglPMmqMMN2HHokdhzZ4rdN/FkJfkB8ck7bQVSEh5ktVpYv9ve9owmUwmIbxsvxmPD8s4npaY0yn6i8B8XQ/xmS/Ph22JX97ejyl45qwpKDn+zp7be19vQ+bra8yh4ONz65ISSlGTczpWA+p7kM8wqlc05oCYoMgaIZ6KoplHd6MGhG3ihzmUvDbRrZA7j/JtA/ZMg/CZNHvmkNMyCGgyG3UrbKtsTMK9Bgg1Td4Sh+maQxU3cKb3b9fPmTXkudcAZ9JNWiNzwCB1a34LgiJNYn94EucuNaDa+OkHQmNonskrQxyxauiJ4tpANYlno+aBuwvmeQOaTI1chTGnMRokdkyesesk/AorGMnszMQMcfade0rtRZhKryltqdOEVr7bHCRKkQT8GrPg99+S8Pc2ivReWuFb40Zz6AteE3eYh6DiuyK+jiI3mUz+GyF8AeMJqijDwFYtAAAAAElFTkSuQmCC" Selector="&lt;html app='chrome.exe' htmlwindowname='WID1778590720104' title='BEx Web' /&gt;" Title="BEx Web" Url="http://cuvl1301.eur.cchbc.com:8117/irj/servlet/prt/portal/prtroot/pcd!3aportal_content!2fcom.sap.pct!2fplatform_add_ons!2fcom.sap.ip.bi!2fiViews!2fcom.sap.ip.bi.bex?BOOKMARK=003YQ657UJ0FKBQVEVJL9KGZK" Version="V1">
+      <imageRef attrName="InformativeScreenshot" originalValue="8fda3365ccac09eff48c91c54e27e1cd.jpg" xmlns="">0ReXC9WxpaE2_vF_LZVRxOA</imageRef>
+    </TargetApp>
+  </ObjectRepositoryScreenData.Data>
+</ObjectRepositoryScreenData>

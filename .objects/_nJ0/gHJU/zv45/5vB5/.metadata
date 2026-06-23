@@ -1,0 +1,13 @@
+﻿{
+  "Name": "Warning System Answer …",
+  "Type": "Element",
+  "Id": "5vB5Rbow0kqcjU1dYURkOg",
+  "Reference": "kc-tb9gKTUqcNWjdsbFj2Q/5vB5Rbow0kqcjU1dYURkOg",
+  "ParentRef": "kc-tb9gKTUqcNWjdsbFj2Q/zv45mU6C4E-S7QPJ9kQ0EQ",
+  "Created": "2026-02-08T09:16:05.2534358Z",
+  "Updated": "2026-02-08T09:16:05.2534358Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=24.10.12.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=24.12.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

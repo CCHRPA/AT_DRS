@@ -1,0 +1,14 @@
+﻿{
+  "Name": "Export to Microsoft Exc…",
+  "Type": "Element",
+  "TaxonomyType": "Label",
+  "Id": "TeiOFqY-MkqEvgEcLkfj5Q",
+  "Reference": "kc-tb9gKTUqcNWjdsbFj2Q/TeiOFqY-MkqEvgEcLkfj5Q",
+  "ParentRef": "kc-tb9gKTUqcNWjdsbFj2Q/0DQs4POJyU2f8xpaCiAD9w",
+  "Created": "2026-05-14T12:55:49.1347096Z",
+  "Updated": "2026-05-14T12:55:49.1347096Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=24.10.12.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=24.12.3.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

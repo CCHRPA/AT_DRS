@@ -1,0 +1,60 @@
+Sub Main(ByVal iPeriod, iYear, sPriorYear, sFilePathBWexport,sPassword)
+
+Dim lResult As Long
+Dim wb as Workbook
+Dim xlApp As Application
+
+
+'Start a new instance of excel, load up the file we want to refresh
+Set xlApp = CreateObject("Excel.Application")
+xlApp.Visible = True 'always should be set to TRUE of using Analysis for Office
+
+Set wb = xlApp.Workbooks.Open(sFilePathBWexport, False, False) 'Open the main file for loading data
+
+'Force the plugin to be enabled on the second instance of Excel
+
+xlApp.Application.StatusBar = "Making sure Analysis for Office addin is active..."
+
+For Each addin In xlApp.Application.COMAddIns
+If addin.progID = "SapExcelAddIn" Then
+If addin.Connect = False Then
+addin.Connect = True
+ElseIf addin.Connect = True Then
+addin.Connect = False
+addin.Connect = True
+End If
+End If
+Next
+
+'login into p13
+lResult = xlApp.Application.Run("SAPLogon", "DS_1", "400", "RPAPRD2", sPassword)
+
+'Refresh Analysis
+lResult = xlApp.Application.Run("SAPExecuteCommand", "RefreshData", "DS_1")
+
+'Disable AutoRefresh
+Call xlApp.Application.Run("SAPSetRefreshBehaviour", "Off")
+Call xlApp.Application.Run("SAPExecuteCommand", "PauseVariableSubmit", "On")
+
+lResult = xlApp.Application.Run("SAPSetVariable", "U_0FISCPER3_03", iPeriod, "INPUT_STRING", "DS_1")
+lResult = xlApp.Application.Run("SAPSetVariable", "U_0FISCYEAR_02", iYear, "INPUT_STRING", "DS_1")
+lResult = xlApp.Application.Run("SAPSetVariable", "UCALYR01", iYear, "INPUT_STRING", "DS_1")
+lResult = xlApp.Application.Run("SAPSetVariable", "U0FISC04", sPriorYear, "INPUT_STRING", "DS_1")
+lResult = xlApp.Application.Run("SAPSetVariable", "UCALYR02", sPriorYear, "INPUT_STRING", "DS_1")
+
+
+'Enable AutoRefresh
+Call xlApp.Application.Run("SAPExecuteCommand", "PauseVariableSubmit", "Off")
+Call xlApp.Application.Run("SAPSetRefreshBehaviour", "On")
+
+
+
+xlApp.Application.DisplayAlerts = False
+wb.Close SaveChanges:=True
+xlApp.Wait (Now + TimeValue("0:00:60"))
+xlApp.Quit
+
+End Sub
+
+
+

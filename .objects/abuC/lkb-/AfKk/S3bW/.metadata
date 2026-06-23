@@ -1,0 +1,14 @@
+﻿{
+  "Name": "Sales document",
+  "Type": "Element",
+  "TaxonomyType": "Label",
+  "Id": "S3bWKhavW0C9rq_Khu7x0g",
+  "Reference": "kc-tb9gKTUqcNWjdsbFj2Q/S3bWKhavW0C9rq_Khu7x0g",
+  "ParentRef": "kc-tb9gKTUqcNWjdsbFj2Q/AfKktBoQckaou_3zl0Wc6w",
+  "Created": "2026-05-13T12:37:39.8924315Z",
+  "Updated": "2026-05-13T12:37:39.8924315Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=24.10.12.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=24.12.3.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

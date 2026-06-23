@@ -1,0 +1,13 @@
+﻿{
+  "Name": "Balance Display GL Accounts For the Ledger 0L",
+  "Type": "Screen",
+  "Id": "d8Mv29fCjk6pFu_suJnrYw",
+  "Reference": "kc-tb9gKTUqcNWjdsbFj2Q/d8Mv29fCjk6pFu_suJnrYw",
+  "ParentRef": "kc-tb9gKTUqcNWjdsbFj2Q/gHJU5b170Uymac3vjWu1RA",
+  "Created": "2026-02-08T09:17:00.1819531Z",
+  "Updated": "2026-02-08T09:17:00.1819531Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=24.10.12.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=24.12.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

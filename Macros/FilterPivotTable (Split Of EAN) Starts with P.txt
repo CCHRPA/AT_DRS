@@ -1,0 +1,21 @@
+Sub FilterPivotStartsByP()
+    Dim pt As PivotTable
+    Dim pf As PivotField
+    Dim pi As PivotItem
+    
+    Set pt = ActiveSheet.PivotTables("PivotTable2")
+    Set pf = pt.PivotFields("Customer")
+    
+    pt.ManualUpdate = True ' Improves performance during large loops
+    pf.ClearAllFilters
+    
+    For Each pi In pf.PivotItems
+        If Not pi.Name Like "P*" Then
+            On Error Resume Next
+            pi.Visible = False
+            On Error GoTo 0
+        End If
+    Next pi
+    
+    pt.ManualUpdate = False
+End Sub

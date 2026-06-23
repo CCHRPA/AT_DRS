@@ -1,0 +1,14 @@
+Sub FilterPivot()
+ 
+    Dim pt As PivotTable
+    Set pt = ActiveSheet.PivotTables("PivotTable2")
+ 
+    
+    With pt.PivotFields("DRS article?")
+        .ClearAllFilters
+        On Error Resume Next
+        .PivotItems("no").Visible = False
+        On Error GoTo 0
+    End With
+ 
+End Sub

@@ -1,0 +1,525 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="SAP_BAPI_BBP_READ_TABLE" this:SAP_BAPI_BBP_READ_TABLE.in_sAsset="RPAPRD3_SAP" this:SAP_BAPI_BBP_READ_TABLE.in_sSystemID="P02" this:SAP_BAPI_BBP_READ_TABLE.in_sFilterCondition="ZZ_FKDAT BETWEEN '20260404' AND '20260501' AND VKORG_ANA = '1100'" this:SAP_BAPI_BBP_READ_TABLE.in_arrSelectedFields="[{&quot;MATNR&quot;,&quot;VBELN&quot;,&quot;FKDAT_ANA&quot;}]" this:SAP_BAPI_BBP_READ_TABLE.in_sTableName="VBAP" this:SAP_BAPI_BBP_READ_TABLE.in_Msg_Server="itdcmec0.eur.cchbc.com" this:SAP_BAPI_BBP_READ_TABLE.in_sOutputFilePath="[Directory.GetCurrentDirectory+&quot;\Data\Temp\Export_VBAP.xlsx&quot;]" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ss="clr-namespace:System.Security;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:usba="clr-namespace:UiPath.SAP.BAPI.Activities;assembly=UiPath.SAP.BAPI.Activities" xmlns:usbam="clr-namespace:UiPath.SAP.BAPI.Activities.Model;assembly=UiPath.SAP.BAPI.Activities" xmlns:usbc="clr-namespace:UiPath.SAP.BAPI.ConnectionService;assembly=UiPath.SAP.BAPI" xmlns:usbm="clr-namespace:UiPath.SAP.BAPI.Model;assembly=UiPath.SAP.BAPI" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property sap2010:Annotation.AnnotationText="Orchestrator Asset that stores SAP connection details&#xA;Example: &quot;RPAPRD3_SAP&quot;" Name="in_sAsset" Type="InArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="SID of the target SAP system/Cluster&#xA;Example: P02, P03" Name="in_sSystemID" Type="InArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="The filtering condition/query to be applied when retrieving data from SAP&#xA;Example: KATR5 = '01'" Name="in_sFilterCondition" Type="InArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="List of fields (columns) to be retrieved from the SAP table &lt;Array of Strings&gt;&#xA;Example: {&quot;BUKRS&quot;, &quot;LIFNR&quot;, &quot;NAME1&quot;}" Name="in_arrSelectedFields" Type="InArgument(s:String[])" />
+    <x:Property sap2010:Annotation.AnnotationText="The name of the SAP table from which data will be retrieved&#xA;Example: KAN1" Name="in_sTableName" Type="InArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="IP address of the SAP Message Server&#xA;Example:&#xA;P03- &quot;cuvp0301.eur.cchbc.com&quot;&#xA;P02- &quot;itdcmec0.eur.cchbc.com&quot;&#xA;P06- &quot;cuvp0601.eur.cchbc.com&quot;" Name="in_Msg_Server" Type="InArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="Specifies the file path where the output data will be saved" Name="in_sOutputFilePath" Type="InArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="Output variable type Boolean when no data is Found" Name="out_bNoDataFound" Type="OutArgument(x:Boolean)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1072,2439</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>SAP_BAPI_BBP_READ_TABLE_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.SAP.BAPI.ConnectionService</x:String>
+      <x:String>UiPath.SAP.BAPI.Telemetry</x:String>
+      <x:String>UiPath.SAP.BAPI.Activities.Model</x:String>
+      <x:String>UiPath.SAP.BAPI.Model</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.SAP.BAPI.Activities</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Text.RegularExpressions</x:String>
+      <x:String>UiPath.DataTableUtilities</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Data.Common</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>System.Numerics</x:String>
+      <x:String>System.Text</x:String>
+      <x:String>System.Net</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>System.Globalization</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>UiPath.SAP.BAPI</AssemblyReference>
+      <AssemblyReference>UiPath.SAP.BAPI.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>CCH_Common_Lib</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>OfficeDevPnP.Core</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>UiPathTeam.SharePoint</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Data.Entity</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.Linq.Async.Queryable</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Linq.Parallel</AssemblyReference>
+      <AssemblyReference>System.Linq.Queryable</AssemblyReference>
+      <AssemblyReference>System.Text.RegularExpressions</AssemblyReference>
+      <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
+      <AssemblyReference>System.Text.Encoding.CodePages</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.Watcher</AssemblyReference>
+      <AssemblyReference>System.IO.Packaging</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.AccessControl</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.DriveInfo</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>System.Net.Primitives</AssemblyReference>
+      <AssemblyReference>System.Net.HttpListener</AssemblyReference>
+      <AssemblyReference>System.Net.WebProxy</AssemblyReference>
+      <AssemblyReference>System.Net.NameResolution</AssemblyReference>
+      <AssemblyReference>System.Net.WebClient</AssemblyReference>
+      <AssemblyReference>System.Net.Requests</AssemblyReference>
+      <AssemblyReference>System.Net.ServicePoint</AssemblyReference>
+      <AssemblyReference>System.Net.WebHeaderCollection</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="1. Retrieve Credentials  &#xA;   -Get SAP connection credentials (username &amp; password) from Orchestrator Assets.  &#xA;&#xA; 2. Establish SAP Connection (SAP Scope)  &#xA;   - Use the retrieved credentials to initiate a connection to the SAP system within a secure SAP Application Scope.  &#xA;&#xA; 3. Initialize `data_Options`  &#xA;   - Define the `OPTIONS` parameter, which sets the filtering criteria for data extraction.  &#xA;&#xA; 4. Initialize `data_Fields`  &#xA;   - Specify the fields (columns) to be retrieved from the target SAP table.  &#xA;&#xA; 5. Apply Filter Criteria  &#xA;   - Dynamically construct filter conditions based on input parameters (e.g., column filters, ranges, and conditions).  &#xA;&#xA;6. Execute BAPI Call  &#xA;   - Invoke the `BBP_READ_TABLE` function module with the configured filters and field selections.  &#xA;&#xA;Important Note!&#xA;&#xA;The extracted data is returned in **one column** instead of multiple separate columns.  &#xA;- The values for each column are concatenated using a separator (`~` )  &#xA;- Output must be **properly split and parsed** to extract individual field values" DisplayName="SAP_BAPI_BBP_READ_TABLE" sap:VirtualizedContainerService.HintSize="1153.6000000000001,3148.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="sd:DataTable" Name="data_Customer" />
+      <Variable x:TypeArguments="x:String" Name="sUserName" />
+      <Variable x:TypeArguments="ss:SecureString" Name="Password" />
+      <Variable x:TypeArguments="sd:DataTable" sap2010:Annotation.AnnotationText="A data table containing the extracted data" Name="dataResult" />
+      <Variable x:TypeArguments="sd:DataTable" Name="data_Output" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="[in_sAsset]" CacheStrategy="None" DisplayName="Get Credential" sap:VirtualizedContainerService.HintSize="545.6,175.2" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[Password]" Username="[sUserName]" />
+    <usba:SapApplicationScope AdvancedParameters="{x:Null}" AppServer="{x:Null}" ExistingConnectionService="{x:Null}" LogonGroup="{x:Null}" SapConnectionService="{x:Null}" SapRouterString="{x:Null}" SncLibraryPath="{x:Null}" SncMode="{x:Null}" SncPartnerName="{x:Null}" SncQop="{x:Null}" SncSso="{x:Null}" SystemNumber="{x:Null}" Client="400" DesignAdvancedParameters="[Nothing]" DesignAppServer="[Nothing]" DesignClient="400" DesignLanguage="EN" DesignLogonGroup="[Nothing]" DesignMessageServer="itdcmec0.eur.cchbc.com" DesignSapRouterString="[Nothing]" DesignSncLibraryPath="[Nothing]" DesignSncMode="[Nothing]" DesignSncPartnerName="[Nothing]" DesignSncQOP="[Nothing]" DesignSncSso="[Nothing]" DesignSystemId="P02" DesignSystemNumber="[Nothing]" DesignUser="RPAPRD3" DisplayName="SAP Application Scope" sap:VirtualizedContainerService.HintSize="545.6,1591.2" sap2010:WorkflowViewState.IdRef="SapApplicationScope_1" Language="EN" MessageServer="[in_MSG_SERVER]" Password="[Password]" StatefulConnection="True" SystemId="[in_sSystemID]" User="[sUserName]">
+      <usba:SapApplicationScope.Body>
+        <ActivityAction x:TypeArguments="usbc:IConnectionService">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="usbc:IConnectionService" Name="ConnectionService" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="467.2,1449.6" sap2010:WorkflowViewState.IdRef="Sequence_3">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="sd:DataTable" Name="data_FIELDNAME" />
+              <Variable x:TypeArguments="sd:DataTable" Name="data_Options" />
+              <Variable x:TypeArguments="x:String" Name="sOutputTable" />
+              <Variable x:TypeArguments="x:String" Name="sOutputResults" />
+              <Variable x:TypeArguments="x:Int32" Name="iIndex" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <Assign DisplayName="Initialize Output DataTable" sap:VirtualizedContainerService.HintSize="433.6,113.6" sap2010:WorkflowViewState.IdRef="Assign_2">
+              <Assign.To>
+                <OutArgument x:TypeArguments="sd:DataTable">[data_Output]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="sd:DataTable">[New System.Data.DataTable]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <ui:GenerateDataTable ColumnSizes="{x:Null}" NewLineSeparator="{x:Null}" Positions="{x:Null}" AutoDetectTypes="False" CSVParsing="False" ColumnSeparators="," DataTable="[data_Output]" DisplayName="Add headers to out_dataResult" sap:VirtualizedContainerService.HintSize="433.6,84.8" sap2010:WorkflowViewState.IdRef="GenerateDataTable_2" Input="[String.Join(&quot;,&quot;,in_arrSelectedFields)]" UseColumnHeader="True">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:GenerateDataTable>
+            <ui:BuildDataTable sap2010:Annotation.AnnotationText="Stores the parameters provided for table query for filtering" DataTable="[data_Options]" DisplayName="Build Data Table data_Options" sap:VirtualizedContainerService.HintSize="433.6,136" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;TEXT&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;500&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:BuildDataTable>
+            <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{&quot;&quot;+in_sFilterCondition+&quot;&quot;}]" DataTable="[data_Options]" DisplayName="Add Data Row PARTNER to data_Options" sap:VirtualizedContainerService.HintSize="433.6,220" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
+            <ui:BuildDataTable sap2010:Annotation.AnnotationText="Stores the required columns with technical names to be extracted from the table" DataTable="[data_FIELDNAME]" DisplayName="Build Data Table data_Fields" sap:VirtualizedContainerService.HintSize="433.6,136" sap2010:WorkflowViewState.IdRef="BuildDataTable_2" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;FIELDNAME&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:BuildDataTable>
+            <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each Field" sap:VirtualizedContainerService.HintSize="433.6,356.8" sap2010:WorkflowViewState.IdRef="ForEach`1_24" Values="[in_arrSelectedFields]">
+              <ui:ForEach.Body>
+                <ActivityAction x:TypeArguments="x:String">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="x:String" Name="Field" />
+                  </ActivityAction.Argument>
+                  <ui:AddDataRow DataRow="{x:Null}" sap2010:Annotation.AnnotationText="Add Column {&quot;ORIGIN&quot;} from SAP table" ArrayRow="[{&quot;&quot;+Field.ToString+&quot;&quot;}]" DataTable="[data_FIELDNAME]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="334.4,188" sap2010:WorkflowViewState.IdRef="AddDataRow_4">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:AddDataRow>
+                </ActivityAction>
+              </ui:ForEach.Body>
+            </ui:ForEach>
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="433.6,84.8" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Trace" Message="[&quot;Start extracting data from &quot;+in_sTableName+&quot; table&quot;]">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:LogMessage>
+            <usba:InvokeSapBapi BapiDescription="{x:Null}" BapiName="BBP_RFC_READ_TABLE" BapiSelected="True" DisplayName="BBP_RFC_READ_TABLE" sap:VirtualizedContainerService.HintSize="433.6,92" sap2010:WorkflowViewState.IdRef="InvokeSapBapi_1">
+              <usba:InvokeSapBapi.AllArguments>
+                <scg:Dictionary x:TypeArguments="x:String, usbam:BapiArgumentUiModel">
+                  <x:Reference>__ReferenceID0<x:Key>DELIMITER</x:Key></x:Reference>
+                  <x:Reference>__ReferenceID1<x:Key>NO_DATA</x:Key></x:Reference>
+                  <x:Reference>__ReferenceID2<x:Key>QUERY_TABLE</x:Key></x:Reference>
+                  <x:Reference>__ReferenceID3<x:Key>ROWCOUNT</x:Key></x:Reference>
+                  <x:Reference>__ReferenceID4<x:Key>ROWSKIPS</x:Key></x:Reference>
+                  <x:Reference>__ReferenceID5<x:Key>DATA</x:Key></x:Reference>
+                  <x:Reference>__ReferenceID6<x:Key>FIELDS</x:Key></x:Reference>
+                  <x:Reference>__ReferenceID7<x:Key>OPTIONS</x:Key></x:Reference>
+                </scg:Dictionary>
+              </usba:InvokeSapBapi.AllArguments>
+              <usba:InvokeSapBapi.OptionalArguments>
+                <scg:List x:TypeArguments="usbam:BapiArgumentUiModel" Capacity="3">
+                  <usbam:BapiArgumentUiModel FieldArguments="{x:Null}" x:Name="__ReferenceID1" DataType="String" DataTypeAsString="String" DecimalLength="0" Description="Text field length 1" Direction="In" DirectionAsString="In" IsSelected="False" Length="1" Name="NO_DATA" Optional="True" ServiceDataType="">
+                    <usbam:BapiArgumentUiModel.ArgumentValue>
+                      <InArgument x:TypeArguments="x:String" />
+                    </usbam:BapiArgumentUiModel.ArgumentValue>
+                  </usbam:BapiArgumentUiModel>
+                  <usbam:BapiArgumentUiModel FieldArguments="{x:Null}" x:Name="__ReferenceID3" DataType="Integer" DataTypeAsString="Int32" DecimalLength="0" Description="SAPoffice: Type I" Direction="In" DirectionAsString="In" IsSelected="False" Length="4" Name="ROWCOUNT" Optional="True" ServiceDataType="">
+                    <usbam:BapiArgumentUiModel.ArgumentValue>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </usbam:BapiArgumentUiModel.ArgumentValue>
+                  </usbam:BapiArgumentUiModel>
+                  <usbam:BapiArgumentUiModel FieldArguments="{x:Null}" x:Name="__ReferenceID4" DataType="Integer" DataTypeAsString="Int32" DecimalLength="0" Description="SAPoffice: Type I" Direction="In" DirectionAsString="In" IsSelected="False" Length="4" Name="ROWSKIPS" Optional="True" ServiceDataType="">
+                    <usbam:BapiArgumentUiModel.ArgumentValue>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </usbam:BapiArgumentUiModel.ArgumentValue>
+                  </usbam:BapiArgumentUiModel>
+                </scg:List>
+              </usba:InvokeSapBapi.OptionalArguments>
+              <usba:InvokeSapBapi.SelectedArgumentList>
+                <scg:List x:TypeArguments="usbam:BapiArgumentUiModel" Capacity="5">
+                  <usbam:BapiArgumentUiModel FieldArguments="{x:Null}" x:Name="__ReferenceID2" DataType="String" DataTypeAsString="String" DecimalLength="0" Description="Table Name" Direction="In" DirectionAsString="In" IsSelected="False" Length="30" Name="QUERY_TABLE" Optional="False" ServiceDataType="">
+                    <usbam:BapiArgumentUiModel.ArgumentValue>
+                      <InArgument x:TypeArguments="x:String">[in_sTableName]</InArgument>
+                    </usbam:BapiArgumentUiModel.ArgumentValue>
+                  </usbam:BapiArgumentUiModel>
+                  <usbam:BapiArgumentUiModel Length="{x:Null}" x:Name="__ReferenceID5" DataType="DataTable" DataTypeAsString="DataTable" DecimalLength="0" Description="Table with a 512 byte field" Direction="InOut" DirectionAsString="In/Out" IsSelected="False" Name="DATA" Optional="False" ServiceDataType="TAB512">
+                    <usbam:BapiArgumentUiModel.ArgumentValue>
+                      <InOutArgument x:TypeArguments="sd:DataTable">[dataResult]</InOutArgument>
+                    </usbam:BapiArgumentUiModel.ArgumentValue>
+                    <usbam:BapiArgumentUiModel.FieldArguments>
+                      <scg:List x:TypeArguments="usbm:FieldArgument" Capacity="4">
+                        <usbm:FieldArgument DataType="String" DecimalLength="0" Description="Character field length 512" Length="512" Name="WA" />
+                      </scg:List>
+                    </usbam:BapiArgumentUiModel.FieldArguments>
+                  </usbam:BapiArgumentUiModel>
+                  <usbam:BapiArgumentUiModel Length="{x:Null}" x:Name="__ReferenceID6" DataType="DataTable" DataTypeAsString="DataTable" DecimalLength="0" Description="RFC Table Read: Description of Fields to Retrieve" Direction="InOut" DirectionAsString="In/Out" IsSelected="False" Name="FIELDS" Optional="False" ServiceDataType="RFC_DB_FLD">
+                    <usbam:BapiArgumentUiModel.ArgumentValue>
+                      <InOutArgument x:TypeArguments="sd:DataTable">[data_FIELDNAME]</InOutArgument>
+                    </usbam:BapiArgumentUiModel.ArgumentValue>
+                    <usbam:BapiArgumentUiModel.FieldArguments>
+                      <scg:List x:TypeArguments="usbm:FieldArgument" Capacity="8">
+                        <usbm:FieldArgument DataType="String" DecimalLength="0" Description="Field Name" Length="30" Name="FIELDNAME" />
+                        <usbm:FieldArgument DataType="String" DecimalLength="0" Description="Offset of a field" Length="6" Name="OFFSET" />
+                        <usbm:FieldArgument DataType="String" DecimalLength="0" Description="Length (No. of Characters)" Length="6" Name="LENGTH" />
+                        <usbm:FieldArgument DataType="String" DecimalLength="0" Description="ABAP data type (C,D,N,...)" Length="1" Name="TYPE" />
+                        <usbm:FieldArgument DataType="String" DecimalLength="0" Description="Short Description of Repository Objects" Length="60" Name="FIELDTEXT" />
+                      </scg:List>
+                    </usbam:BapiArgumentUiModel.FieldArguments>
+                  </usbam:BapiArgumentUiModel>
+                  <usbam:BapiArgumentUiModel Length="{x:Null}" x:Name="__ReferenceID7" DataType="DataTable" DataTypeAsString="DataTable" DecimalLength="0" Description="RFC Table Read: Select Options / WHERE Clause" Direction="InOut" DirectionAsString="In/Out" IsSelected="False" Name="OPTIONS" Optional="False" ServiceDataType="RFC_DB_OPT">
+                    <usbam:BapiArgumentUiModel.ArgumentValue>
+                      <InOutArgument x:TypeArguments="sd:DataTable">[data_Options]</InOutArgument>
+                    </usbam:BapiArgumentUiModel.ArgumentValue>
+                    <usbam:BapiArgumentUiModel.FieldArguments>
+                      <scg:List x:TypeArguments="usbm:FieldArgument" Capacity="4">
+                        <usbm:FieldArgument DataType="String" DecimalLength="0" Description="Text line of a message" Length="72" Name="TEXT" />
+                      </scg:List>
+                    </usbam:BapiArgumentUiModel.FieldArguments>
+                  </usbam:BapiArgumentUiModel>
+                  <usbam:BapiArgumentUiModel FieldArguments="{x:Null}" x:Name="__ReferenceID0" DataType="String" DataTypeAsString="String" DecimalLength="0" Description="Text field length 1" Direction="In" DirectionAsString="In" IsSelected="False" Length="1" Name="DELIMITER" Optional="True" ServiceDataType="">
+                    <usbam:BapiArgumentUiModel.ArgumentValue>
+                      <InArgument x:TypeArguments="x:String">§</InArgument>
+                    </usbam:BapiArgumentUiModel.ArgumentValue>
+                  </usbam:BapiArgumentUiModel>
+                </scg:List>
+              </usba:InvokeSapBapi.SelectedArgumentList>
+            </usba:InvokeSapBapi>
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="433.6,165.6" sap2010:WorkflowViewState.IdRef="LogMessage_3" Message="[&quot;Extracted &quot;+dataResult.Rows.Count.toString+&quot; rows&quot;]">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:LogMessage>
+          </Sequence>
+        </ActivityAction>
+      </usba:SapApplicationScope.Body>
+      <usba:SapApplicationScope.DesignPassword>
+        <ss:SecureString />
+      </usba:SapApplicationScope.DesignPassword>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </usba:SapApplicationScope>
+    <If Condition="[dataResult.rows.Count=0]" DisplayName="If dataResult isEmpty" sap:VirtualizedContainerService.HintSize="545.6,1283.2" sap2010:WorkflowViewState.IdRef="If_1">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <If.Then>
+        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="467.2,164.8" sap2010:WorkflowViewState.IdRef="Sequence_4">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Assign DisplayName="Assign out_bNoDataFound" sap:VirtualizedContainerService.HintSize="433.6,104.8" sap2010:WorkflowViewState.IdRef="Assign_9">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:Boolean">[out_bNoDataFound]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+            </Assign.Value>
+          </Assign>
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="512,956.8" sap2010:WorkflowViewState.IdRef="Sequence_5">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Assign DisplayName="Assign out_bNoDataFound" sap:VirtualizedContainerService.HintSize="478.4,113.6" sap2010:WorkflowViewState.IdRef="Assign_10">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:Boolean">[out_bNoDataFound]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+            </Assign.Value>
+          </Assign>
+          <Assign sap2010:Annotation.AnnotationText="Split each row using the (~) delimiter, Convert to Object Array and insert into data_Output" DisplayName="Assign data_Output" sap:VirtualizedContainerService.HintSize="478.4,159.2" sap2010:WorkflowViewState.IdRef="Assign_8">
+            <Assign.To>
+              <OutArgument x:TypeArguments="sd:DataTable">[data_Output]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="sd:DataTable" xml:space="preserve">[dataResult.AsEnumerable().
+Select(Function(row) data_Output.LoadDataRow(
+    System.Text.RegularExpressions.Regex.Replace(row(0).ToString(), "\s+", " ").Trim().Replace(" §","§").
+    Split("§"c).Take(data_Output.Columns.Count).Cast(Of Object).ToArray(), False)).
+CopyToDataTable()]</InArgument>
+            </Assign.Value>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </Assign>
+          <Assign sap2010:Annotation.AnnotationText="Removes start zeros from Material and Sales documents column&#xD;&#xA;Formatting the calendar day to &quot;dd.MM.yyyy&quot;" DisplayName="Normalizing exported data" sap:VirtualizedContainerService.HintSize="478.4,159.2" sap2010:WorkflowViewState.IdRef="Assign_13">
+            <Assign.To>
+              <OutArgument x:TypeArguments="sd:DataTable">[data_Output]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="sd:DataTable" xml:space="preserve">[(From r In data_Output.AsEnumerable()
+ Select data_Output.Clone().LoadDataRow(
+    data_Output.Columns.Cast(Of DataColumn).Select(Function(c) _
+        If(c.ColumnName = "MATNR",
+            If(String.IsNullOrWhiteSpace(r(c.ColumnName).ToString.TrimStart("0"c)),
+                "0",
+                r(c.ColumnName).ToString.TrimStart("0"c)),
+        If(c.ColumnName = "VBELN",
+            If(String.IsNullOrWhiteSpace(r(c.ColumnName).ToString.TrimStart("0"c)),
+                "0",
+                r(c.ColumnName).ToString.TrimStart("0"c)),
+        If(c.ColumnName = "FKDAT_ANA",
+            DateTime.ParseExact(
+                r(c.ColumnName).ToString,
+                "yyyyMMdd",
+                System.Globalization.CultureInfo.InvariantCulture
+            ).ToString("dd.MM.yyyy"),
+            r(c.ColumnName)
+        )))
+    ).ToArray(), False)
+).CopyToDataTable()]</InArgument>
+            </Assign.Value>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </Assign>
+          <ui:MultipleAssign DisplayName="Changing columns names " sap:VirtualizedContainerService.HintSize="478.4,212" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+            <ui:MultipleAssign.AssignOperations>
+              <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:String">[data_Output.Columns("MATNR").ColumnName]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:String">Material</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:String">[data_Output.Columns("VBELN").ColumnName]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:String">Sales Document</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:String">[data_Output.Columns("FKDAT_ANA").ColumnName]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:String">Calendar Day</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+              </scg:List>
+            </ui:MultipleAssign.AssignOperations>
+          </ui:MultipleAssign>
+          <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="478.4,56.8" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+            <ui:CommentOut.Body>
+              <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="416,108" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[data_Output]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="382.4,48" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+                  <ui:ForEachRow.Body>
+                    <ActivityAction x:TypeArguments="sd:DataRow">
+                      <ActivityAction.Argument>
+                        <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
+                      </ActivityAction.Argument>
+                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="467.2,164.8" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <Assign sap:VirtualizedContainerService.HintSize="433.6,104.8" sap2010:WorkflowViewState.IdRef="Assign_11">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:Object">[row("MATNR")]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:Object">[row("MATNR").ToString.TrimStart("0"c)]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                      </Sequence>
+                    </ActivityAction>
+                  </ui:ForEachRow.Body>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </ui:ForEachRow>
+              </Sequence>
+            </ui:CommentOut.Body>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:CommentOut>
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="478.4,56.8" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Trace" Message="[&quot;Save data to &quot;+in_sOutputFilePath]">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:LogMessage>
+          <ui:WriteRange WorkbookPathResource="{x:Null}" AddHeaders="True" DataTable="[data_Output]" DisplayName="Write Output data Table" sap:VirtualizedContainerService.HintSize="478.4,139.2" sap2010:WorkflowViewState.IdRef="WriteRange_4" SheetName="Sheet1" StartingCell="A1" WorkbookPath="[in_sOutputFilePath]" />
+        </Sequence>
+      </If.Else>
+    </If>
+  </Sequence>
+</Activity>

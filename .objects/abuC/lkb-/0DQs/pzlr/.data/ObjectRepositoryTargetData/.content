@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="LyNlxAcxgU-WAZUGO0T7Cw" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="cuvl1301.eur.cchbc.com/irj/servlet/prt/portal/prtroot/pcd!3aportal_content!2fcom.sap.pct!2fplatform_add_ons!2fcom.sap.ip.bi!2fiViews!2fcom.sap.ip.bi.bex" DesignTimeRectangle="512, 663, 57, 22" DesignTimeScaleFactor="1.25" ElementType="Button" FullSelectorArgument="&lt;webctrl parentname='logonForm' tableRow='1' tag='TABLE' /&gt;&lt;webctrl tag='INPUT' aaname='Log on' name='uidPasswordLogon' /&gt;" Guid="2c3a70a7-8be6-4f21-8b21-fdd8c5cf26f7" ScopeSelectorArgument="&lt;html app='chrome.exe' title='SAP NetWeaver Portal' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive">
+      <imageRef attrName="InformativeScreenshot" originalValue="e35af1d0ebdebf501d8f556c3a74db3f.png" xmlns="">0DtRNSR4b7kmi-ki-pI9Jdw</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">CheckState</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

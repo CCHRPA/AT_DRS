@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="bzs8DHXkWkKybFmwPdVaLQ" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="cuvl1301.eur.cchbc.com/irj/servlet/prt/portal/prtroot/pcd!3aportal_content!2fcom.sap.pct!2fplatform_add_ons!2fcom.sap.ip.bi!2fiViews!2fcom.sap.ip.bi.bex" DesignTimeRectangle="356, 415, 166, 22" DesignTimeScaleFactor="1.25" ElementType="InputBox" FullSelectorArgument="&lt;webctrl id='iframe_Roundtrip_9223372036563636042' tag='IFRAME' /&gt;&lt;webctrl tableRow='13' tag='TABLE' /&gt;&lt;webctrl tag='INPUT' name='DLG_VARIABLE_vsc_cvl_VAR_6_INPUT_inp' /&gt;" FuzzySelectorArgument="&lt;webctrl id='iframe_Roundtrip_9223372036563636042' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tag='INPUT' name='DLG_VARIABLE_vsc_cvl_VAR_6_INPUT_inp' type='text' class='urEdf2TxtEnbl urEdf2TxtHlp' aaname='' /&gt;" Guid="059a34d7-2c05-48d2-998d-0d4d8c12d306" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='WID1778762756489' title='BEx Web' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V4" Visibility="Interactive">
+      <TargetAnchorable.Anchors>
+        <scg:List x:TypeArguments="ITarget" Capacity="4">
+          <Target DesignTimeRectangle="84, 418, 217, 16" ElementType="Text" FuzzySelectorArgument="&lt;webctrl id='iframe_Roundtrip_9223372036563636042' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' class='urTxtStd' tag='SPAN' aaname='Planning Session (single, required)' check:innerText='Planning Session (single, required)' /&gt;" Guid="a4d27bc6-ab2d-456b-a02b-c4a046b66e1b" SearchSteps="FuzzySelector" />
+        </scg:List>
+      </TargetAnchorable.Anchors>
+      <imageRef attrName="InformativeScreenshot" originalValue="25bcd5da2885af2c77a2cbe0dda4584e.png" xmlns="">0my-sMgnRwEeP0WKL0Y1LIA</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">Click</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

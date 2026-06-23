@@ -1,0 +1,14 @@
+﻿{
+  "Name": "Planning Session (singl…",
+  "Type": "Element",
+  "TaxonomyType": "Input",
+  "Id": "WH7a23dQ60yHk1lpYCvhZQ",
+  "Reference": "kc-tb9gKTUqcNWjdsbFj2Q/WH7a23dQ60yHk1lpYCvhZQ",
+  "ParentRef": "kc-tb9gKTUqcNWjdsbFj2Q/0DQs4POJyU2f8xpaCiAD9w",
+  "Created": "2026-05-14T12:49:47.6468406Z",
+  "Updated": "2026-05-14T12:49:47.6468406Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=24.10.12.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=24.12.3.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

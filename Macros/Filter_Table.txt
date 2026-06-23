@@ -1,0 +1,16 @@
+Sub Filter_Table_ByArray(tableName As String, filterValues As Variant)
+
+    With ActiveSheet.ListObjects(tableName)
+        
+        ' Clear existing filter on column 4
+        .Range.AutoFilter Field:=4
+        
+        ' Apply filter using input array
+        .Range.AutoFilter _
+            Field:=4, _
+            Criteria1:=filterValues, _
+            Operator:=xlFilterValues
+            
+    End With
+
+End Sub

@@ -1,0 +1,18 @@
+Sub Filter_Table_ByArray(tableName As String, columnName As String, filterValues As Variant)
+
+    Dim colIndex As Long
+    
+    With ActiveSheet.ListObjects(tableName)
+        
+        colIndex = .ListColumns(columnName).Index
+        
+        .Range.AutoFilter Field:=colIndex
+        
+        .Range.AutoFilter _
+            Field:=colIndex, _
+            Criteria1:=filterValues, _
+            Operator:=xlFilterValues
+            
+    End With
+
+End Sub

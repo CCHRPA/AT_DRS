@@ -1,0 +1,12 @@
+﻿{
+  "Name": "Chrome BEx Web",
+  "Type": "App",
+  "Id": "abuCoKDzWkCOSKy332gdYQ",
+  "Reference": "kc-tb9gKTUqcNWjdsbFj2Q/abuCoKDzWkCOSKy332gdYQ",
+  "Created": "2026-05-13T12:32:10.1527974Z",
+  "Updated": "2026-05-13T12:32:10.1527974Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=24.10.12.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=24.12.3.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

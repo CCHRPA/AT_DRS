@@ -1,0 +1,14 @@
+﻿{
+  "Name": "Target Fiscal Year",
+  "Type": "Element",
+  "TaxonomyType": "Input",
+  "Id": "sBP9q27iCEyiwboNZfbDKA",
+  "Reference": "kc-tb9gKTUqcNWjdsbFj2Q/sBP9q27iCEyiwboNZfbDKA",
+  "ParentRef": "kc-tb9gKTUqcNWjdsbFj2Q/0DQs4POJyU2f8xpaCiAD9w",
+  "Created": "2026-05-14T12:49:01.3260942Z",
+  "Updated": "2026-05-14T12:49:01.3260942Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=24.10.12.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=24.12.3.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

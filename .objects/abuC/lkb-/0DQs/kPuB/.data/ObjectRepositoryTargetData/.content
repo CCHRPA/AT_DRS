@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="XYaoImOt6E60SuqsxzGQ0A" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="cuvl1301.eur.cchbc.com/irj/servlet/prt/portal/prtroot/pcd!3aportal_content!2fcom.sap.pct!2fplatform_add_ons!2fcom.sap.ip.bi!2fiViews!2fcom.sap.ip.bi.bex" DesignTimeRectangle="722, 588, 153, 22" DesignTimeScaleFactor="1.25" ElementType="InputBox" FullSelectorArgument="&lt;webctrl parentname='logonForm' tableRow='1' tag='TABLE' /&gt;&lt;webctrl id='logonuidfield' tableRow='2' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl parentname='logonForm' tag='TABLE' /&gt;&lt;webctrl id='logonuidfield' type='text' tag='INPUT' class='urEdfTxtEnbl' aaname='           User ID            *         ' /&gt;" Guid="8bff0eb7-6922-4558-9fd1-0eeb54c2d5d0" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='SAP NetWeaver Portal' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V4" Visibility="Interactive">
+      <TargetAnchorable.Anchors>
+        <scg:List x:TypeArguments="ITarget" Capacity="4">
+          <Target DesignTimeRectangle="512, 591, 78, 16" ElementType="Text" FuzzySelectorArgument="&lt;webctrl parentname='logonForm' tag='TABLE' /&gt;&lt;webctrl type='' tag='LABEL' class='urLblStd' aaname='           User ID                    ' check:innerText='User ID  *' /&gt;" Guid="ab31b366-e1e8-412b-a6e7-e512d5d7cb92" SearchSteps="FuzzySelector" />
+        </scg:List>
+      </TargetAnchorable.Anchors>
+      <imageRef attrName="InformativeScreenshot" originalValue="b93da5dda593675adb809a6f1ec3761c.png" xmlns="">0OaqrO59OB0Or2N6pCdWxdQ</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">TypeInto</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

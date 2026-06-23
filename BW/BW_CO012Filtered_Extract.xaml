@@ -1,0 +1,525 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="BW_CO012Filtered_Extract" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:c="clr-namespace:CCH_Common_Lib_Windows;assembly=CCH_Common_Lib-Windows" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ss="clr-namespace:System.Security;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_sDirectoryToSave" Type="InArgument(x:String)" />
+    <x:Property Name="in_sBWBookmark" Type="InArgument(x:String)" />
+    <x:Property Name="in_sBWCreds" Type="InArgument(x:String)" />
+    <x:Property Name="in_sPeriod" Type="InArgument(x:String)" />
+    <x:Property Name="in_sYear" Type="InArgument(x:String)" />
+    <x:Property Name="in_sPriorYear" Type="InArgument(x:String)" />
+  </x:Members>
+  <this:BW_CO012Filtered_Extract.in_sDirectoryToSave>
+    <InArgument x:TypeArguments="x:String" />
+  </this:BW_CO012Filtered_Extract.in_sDirectoryToSave>
+  <this:BW_CO012Filtered_Extract.in_sBWBookmark>
+    <InArgument x:TypeArguments="x:String" />
+  </this:BW_CO012Filtered_Extract.in_sBWBookmark>
+  <this:BW_CO012Filtered_Extract.in_sBWCreds>
+    <InArgument x:TypeArguments="x:String" />
+  </this:BW_CO012Filtered_Extract.in_sBWCreds>
+  <this:BW_CO012Filtered_Extract.in_sPeriod>
+    <InArgument x:TypeArguments="x:String" />
+  </this:BW_CO012Filtered_Extract.in_sPeriod>
+  <this:BW_CO012Filtered_Extract.in_sYear>
+    <InArgument x:TypeArguments="x:String" />
+  </this:BW_CO012Filtered_Extract.in_sYear>
+  <this:BW_CO012Filtered_Extract.in_sPriorYear>
+    <InArgument x:TypeArguments="x:String" />
+  </this:BW_CO012Filtered_Extract.in_sPriorYear>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap2010:WorkflowViewState.IdRef>BW_CO012Filtered_Extract_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.Platform.SyncObjects</x:String>
+      <x:String>CCH_Common_Lib_Windows</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>UiPath.UIAutomationNext.Models</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Services.RuntimeAnalyze</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>CCH_Common_Lib-Windows</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.MicrosoftOffice365.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Database.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="BW_CO012Filtered_Extract" sap:VirtualizedContainerService.HintSize="1156,3468" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Sequence DisplayName="BW_Extraction" sap:VirtualizedContainerService.HintSize="593.6,3444.8" sap2010:WorkflowViewState.IdRef="Sequence_2">
+      <Sequence.Variables>
+        <Variable x:TypeArguments="x:String" Name="sFilePath" />
+        <Variable x:TypeArguments="x:Boolean" Name="bFileExists" />
+        <Variable x:TypeArguments="x:Boolean" Name="bFolderExists" />
+        <Variable x:TypeArguments="x:Int32" Name="iIndex" />
+      </Sequence.Variables>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="560,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_1" Message="[&quot;Start BW Luanch&quot;]" />
+      <c:CCH_Clear_Environment DisplayName="CCH Clear Environment" sap:VirtualizedContainerService.HintSize="560,122.4" sap2010:WorkflowViewState.IdRef="CCH_Clear_Environment_2" in_arrAppsToKill="[{&quot;chrome&quot;}]" />
+      <ui:LogMessage DisplayName="Log Message &quot;Start BW Export &quot;+in_sReportName" sap:VirtualizedContainerService.HintSize="560,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_5" Message="[&quot;Start BW Export CO012 ( With Sales Document )&quot;]" />
+      <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Chrome BEx Web(1)" sap:VirtualizedContainerService.HintSize="560,2332" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="94fcd58d-d6be-4dcf-a646-85f2372a5963" Version="V2">
+        <uix:NApplicationCard.Body>
+          <ActivityAction x:TypeArguments="x:Object">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+            </ActivityAction.Argument>
+            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="526.4,2083.2" sap2010:WorkflowViewState.IdRef="Sequence_15">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <uix:NCheckState DisplayName="Check App State 'Log on'" EnableIfNotExists="False" sap:VirtualizedContainerService.HintSize="492.8,56.8" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="94fcd58d-d6be-4dcf-a646-85f2372a5963" Version="V4">
+                <uix:NCheckState.IfExists>
+                  <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="449.6,956" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                    <Sequence.Variables>
+                      <Variable x:TypeArguments="x:String" Name="sUsername" />
+                      <Variable x:TypeArguments="ss:SecureString" Name="ssPassword" />
+                    </Sequence.Variables>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="[in_sBWCreds]" CacheStrategy="None" DisplayName="Get Credential in_sBWCreds" FolderPath="BSO Sofia" sap:VirtualizedContainerService.HintSize="416,175.2" sap2010:WorkflowViewState.IdRef="GetRobotCredential_2" Password="[ssPassword]" Username="[sUsername]" />
+                    <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'User ID  *'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="416,250.4" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="94fcd58d-d6be-4dcf-a646-85f2372a5963" Text="[sUsername]" Version="V4">
+                      <uix:NTypeInto.Target>
+                        <uix:TargetAnchorable BrowserURL="cuvl1301.eur.cchbc.com/irj/servlet/prt/portal/prtroot/pcd!3aportal_content!2fcom.sap.pct!2fplatform_add_ons!2fcom.sap.ip.bi!2fiViews!2fcom.sap.ip.bi.bex" ContentHash="XYaoImOt6E60SuqsxzGQ0A" DesignTimeRectangle="722, 588, 153, 22" DesignTimeScaleFactor="1.25" ElementType="InputBox" FullSelectorArgument="&lt;webctrl parentname='logonForm' tableRow='1' tag='TABLE' /&gt;&lt;webctrl id='logonuidfield' tableRow='2' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl parentname='logonForm' tag='TABLE' /&gt;&lt;webctrl id='logonuidfield' type='text' tag='INPUT' class='urEdfTxtEnbl' aaname='           User ID            *         ' /&gt;" Guid="8bff0eb7-6922-4558-9fd1-0eeb54c2d5d0" InformativeScreenshot="b93da5dda593675adb809a6f1ec3761c.png" IsResponsive="True" Reference="kc-tb9gKTUqcNWjdsbFj2Q/kPuBQoQC1U-yNaveSqAubw" ScopeSelectorArgument="&lt;html app='chrome.exe' title='SAP NetWeaver Portal' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V4" Visibility="Interactive">
+                          <uix:TargetAnchorable.Anchors>
+                            <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                              <uix:Target DesignTimeRectangle="512, 591, 78, 16" ElementType="Text" FuzzySelectorArgument="&lt;webctrl parentname='logonForm' tag='TABLE' /&gt;&lt;webctrl type='' tag='LABEL' class='urLblStd' aaname='           User ID                    ' check:innerText='User ID  *' /&gt;" Guid="ab31b366-e1e8-412b-a6e7-e512d5d7cb92" SearchSteps="FuzzySelector" />
+                            </scg:List>
+                          </uix:TargetAnchorable.Anchors>
+                        </uix:TargetAnchorable>
+                      </uix:NTypeInto.Target>
+                    </uix:NTypeInto>
+                    <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Password  *'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="416,250.4" sap2010:WorkflowViewState.IdRef="NTypeInto_2" IsPassword="True" ScopeIdentifier="94fcd58d-d6be-4dcf-a646-85f2372a5963" SecureText="[ssPassword]" Version="V4">
+                      <uix:NTypeInto.Target>
+                        <uix:TargetAnchorable BrowserURL="cuvl1301.eur.cchbc.com/irj/servlet/prt/portal/prtroot/pcd!3aportal_content!2fcom.sap.pct!2fplatform_add_ons!2fcom.sap.ip.bi!2fiViews!2fcom.sap.ip.bi.bex" ContentHash="BX5wu51cX0ujGyWnFpr8ww" DesignTimeRectangle="722, 613, 153, 22" DesignTimeScaleFactor="1.25" ElementType="InputBoxPassword" FullSelectorArgument="&lt;webctrl parentname='logonForm' tableRow='1' tag='TABLE' /&gt;&lt;webctrl id='logonpassfield' tableRow='3' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl parentname='logonForm' tag='TABLE' /&gt;&lt;webctrl id='logonpassfield' type='password' tag='INPUT' class='urEdfTxtEnbl' aaname='           Password            *         ' /&gt;" Guid="532e8539-dc4a-4f61-9411-68442b3a76e0" InformativeScreenshot="7aa279f89dc5bed607378df8aa2adc4b.png" Reference="kc-tb9gKTUqcNWjdsbFj2Q/0OsJMRZzxka0KFNXCn-jbw" ScopeSelectorArgument="&lt;html app='chrome.exe' title='SAP NetWeaver Portal' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V4" Visibility="Interactive">
+                          <uix:TargetAnchorable.Anchors>
+                            <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                              <uix:Target DesignTimeRectangle="512, 616, 92, 16" ElementType="Text" FuzzySelectorArgument="&lt;webctrl parentname='logonForm' tag='TABLE' /&gt;&lt;webctrl type='' tag='LABEL' class='urLblStd' aaname='           Password                    ' check:innerText='Password  *' /&gt;" Guid="ff5c570e-4ef8-4fb6-9279-eb7b9aabdb52" SearchSteps="FuzzySelector" />
+                            </scg:List>
+                          </uix:TargetAnchorable.Anchors>
+                        </uix:TargetAnchorable>
+                      </uix:NTypeInto.Target>
+                    </uix:NTypeInto>
+                    <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Log on(1)'" sap:VirtualizedContainerService.HintSize="416,218.4" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="94fcd58d-d6be-4dcf-a646-85f2372a5963" Version="V4">
+                      <uix:NClick.Target>
+                        <uix:TargetAnchorable BrowserURL="cuvl1301.eur.cchbc.com/irj/servlet/prt/portal/prtroot/pcd!3aportal_content!2fcom.sap.pct!2fplatform_add_ons!2fcom.sap.ip.bi!2fiViews!2fcom.sap.ip.bi.bex" ContentHash="slzz-w6LuUOdahe663xqMA" DesignTimeRectangle="512, 663, 57, 22" DesignTimeScaleFactor="1.25" ElementType="Button" FullSelectorArgument="&lt;webctrl parentname='logonForm' tableRow='1' tag='TABLE' /&gt;&lt;webctrl tableRow='5' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl parentname='logonForm' tag='TABLE' /&gt;&lt;webctrl type='submit' tag='INPUT' class='urBtnStd' aaname='Log on' check:text='Log on' /&gt;" Guid="a8cd3cb0-5d17-46f6-9499-e1bbb4bca616" InformativeScreenshot="e0a0ad6c416a3f762b3d648eefde8e8b.png" Reference="kc-tb9gKTUqcNWjdsbFj2Q/4gBK5fgsYEq9Kfu6ipoYIw" ScopeSelectorArgument="&lt;html app='chrome.exe' title='SAP NetWeaver Portal' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V4" Visibility="Interactive" />
+                      </uix:NClick.Target>
+                      <uix:NClick.VerifyOptions>
+                        <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                          <uix:VerifyExecutionOptions.Retry>
+                            <InArgument x:TypeArguments="x:Boolean" />
+                          </uix:VerifyExecutionOptions.Retry>
+                          <uix:VerifyExecutionOptions.Timeout>
+                            <InArgument x:TypeArguments="x:Double" />
+                          </uix:VerifyExecutionOptions.Timeout>
+                        </uix:VerifyExecutionOptions>
+                      </uix:NClick.VerifyOptions>
+                    </uix:NClick>
+                  </Sequence>
+                </uix:NCheckState.IfExists>
+                <uix:NCheckState.IfNotExists>
+                  <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="449.6,91.2" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </Sequence>
+                </uix:NCheckState.IfNotExists>
+                <uix:NCheckState.Target>
+                  <uix:TargetAnchorable BrowserURL="cuvl1301.eur.cchbc.com/irj/servlet/prt/portal/prtroot/pcd!3aportal_content!2fcom.sap.pct!2fplatform_add_ons!2fcom.sap.ip.bi!2fiViews!2fcom.sap.ip.bi.bex" ContentHash="LyNlxAcxgU-WAZUGO0T7Cw" DesignTimeRectangle="512, 663, 57, 22" DesignTimeScaleFactor="1.25" ElementType="Button" FullSelectorArgument="&lt;webctrl parentname='logonForm' tableRow='1' tag='TABLE' /&gt;&lt;webctrl tag='INPUT' aaname='Log on' name='uidPasswordLogon' /&gt;" Guid="2c3a70a7-8be6-4f21-8b21-fdd8c5cf26f7" InformativeScreenshot="e35af1d0ebdebf501d8f556c3a74db3f.png" Reference="kc-tb9gKTUqcNWjdsbFj2Q/pzlr4JcZ5Eaz9KP2JlzooQ" ScopeSelectorArgument="&lt;html app='chrome.exe' title='SAP NetWeaver Portal' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
+                </uix:NCheckState.Target>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </uix:NCheckState>
+              <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Input'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="492.8,250.4" sap2010:WorkflowViewState.IdRef="NTypeInto_3" ScopeIdentifier="94fcd58d-d6be-4dcf-a646-85f2372a5963" Text="[in_sPeriod]" Version="V4">
+                <uix:NTypeInto.Target>
+                  <uix:TargetAnchorable BrowserURL="cuvl1301.eur.cchbc.com/irj/servlet/prt/portal/prtroot/pcd!3aportal_content!2fcom.sap.pct!2fplatform_add_ons!2fcom.sap.ip.bi!2fiViews!2fcom.sap.ip.bi.bex" ContentHash="m_27tdo3SE-Qxb9IxZnavA" DesignTimeRectangle="356, 336, 166, 22" DesignTimeScaleFactor="1.25" ElementType="InputBox" FullSelectorArgument="&lt;webctrl id='iframe_Roundtrip_9223372036563636042' tag='IFRAME' /&gt;&lt;webctrl tableRow='7' tag='TABLE' /&gt;&lt;webctrl tag='INPUT' name='DLG_VARIABLE_vsc_cvl_VAR_3_INPUT_inp' type='text' /&gt;" Guid="72666b68-7be6-4bd3-9e08-78da4428c0c0" InformativeScreenshot="a34ac83f1c4e5f43b73070fe7fb2533e.png" Reference="kc-tb9gKTUqcNWjdsbFj2Q/POH-7aX0mk2q2iCRhNsqTA" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='WID1778762756489' title='BEx Web' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
+                </uix:NTypeInto.Target>
+              </uix:NTypeInto>
+              <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Target Fiscal Year'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="492.8,250.4" sap2010:WorkflowViewState.IdRef="NTypeInto_4" ScopeIdentifier="94fcd58d-d6be-4dcf-a646-85f2372a5963" Text="[in_sYear]" Version="V4">
+                <uix:NTypeInto.Target>
+                  <uix:TargetAnchorable BrowserURL="cuvl1301.eur.cchbc.com/irj/servlet/prt/portal/prtroot/pcd!3aportal_content!2fcom.sap.pct!2fplatform_add_ons!2fcom.sap.ip.bi!2fiViews!2fcom.sap.ip.bi.bex" ContentHash="qxTsOxRfJ0mTFo-99WhnCQ" DesignTimeRectangle="356, 389, 166, 22" DesignTimeScaleFactor="1.25" ElementType="InputBox" FullSelectorArgument="&lt;webctrl id='iframe_Roundtrip_9223372036563636042' tag='IFRAME' /&gt;&lt;webctrl tableRow='11' tag='TABLE' /&gt;&lt;webctrl tag='INPUT' name='DLG_VARIABLE_vsc_cvl_VAR_5_INPUT_inp' /&gt;" FuzzySelectorArgument="&lt;webctrl id='iframe_Roundtrip_9223372036563636042' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tag='INPUT' name='DLG_VARIABLE_vsc_cvl_VAR_5_INPUT_inp' type='text' class='urEdf2TxtEnbl urEdf2TxtHlp' aaname='' /&gt;" Guid="4adec1cd-44be-47b5-bcb6-f9753fc3284e" InformativeScreenshot="673795645e63d873dc06c67094a4468a.png" IsResponsive="True" Reference="kc-tb9gKTUqcNWjdsbFj2Q/sBP9q27iCEyiwboNZfbDKA" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='WID1778762756489' title='BEx Web' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V4" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                        <uix:Target DesignTimeRectangle="84, 392, 111, 16" ElementType="Text" FuzzySelectorArgument="&lt;webctrl id='iframe_Roundtrip_9223372036563636042' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl aaname='Target Fiscal Year' type='' tag='SPAN' class='urTxtStd' check:innerText='Target Fiscal Year' /&gt;" Guid="717195b8-2262-45b1-adf5-fb55dcf879c1" SearchSteps="FuzzySelector" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NTypeInto.Target>
+              </uix:NTypeInto>
+              <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Planning Session (singl…'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="492.8,250.4" sap2010:WorkflowViewState.IdRef="NTypeInto_5" ScopeIdentifier="94fcd58d-d6be-4dcf-a646-85f2372a5963" Text="[in_sYear]" Version="V4">
+                <uix:NTypeInto.Target>
+                  <uix:TargetAnchorable BrowserURL="cuvl1301.eur.cchbc.com/irj/servlet/prt/portal/prtroot/pcd!3aportal_content!2fcom.sap.pct!2fplatform_add_ons!2fcom.sap.ip.bi!2fiViews!2fcom.sap.ip.bi.bex" ContentHash="ITQmR5tNukSp_rTi212dDQ" DesignTimeRectangle="356, 415, 166, 22" DesignTimeScaleFactor="1.25" ElementType="InputBox" FullSelectorArgument="&lt;webctrl id='iframe_Roundtrip_9223372036563636042' tag='IFRAME' /&gt;&lt;webctrl tableRow='13' tag='TABLE' /&gt;&lt;webctrl tag='INPUT' name='DLG_VARIABLE_vsc_cvl_VAR_6_INPUT_inp' /&gt;" FuzzySelectorArgument="&lt;webctrl id='iframe_Roundtrip_9223372036563636042' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tag='INPUT' name='DLG_VARIABLE_vsc_cvl_VAR_6_INPUT_inp' type='text' class='urEdf2TxtEnbl urEdf2TxtHlp' aaname='' /&gt;" Guid="845ed56c-94f2-4d6d-98aa-e8a2ccb03714" InformativeScreenshot="25bcd5da2885af2c77a2cbe0dda4584e.png" IsResponsive="True" Reference="kc-tb9gKTUqcNWjdsbFj2Q/so8crSHAb0edzAd8wRbpcA" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='WID1778762756489' title='BEx Web' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V4" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                        <uix:Target DesignTimeRectangle="84, 418, 217, 16" ElementType="Text" FuzzySelectorArgument="&lt;webctrl id='iframe_Roundtrip_9223372036563636042' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' class='urTxtStd' tag='SPAN' aaname='Planning Session (single, required)' check:innerText='Planning Session (single, required)' /&gt;" Guid="28e95bb1-bb28-430f-8afb-6a45970a7d09" SearchSteps="FuzzySelector" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NTypeInto.Target>
+              </uix:NTypeInto>
+              <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Fiscal Year 2 (single, …'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="492.8,250.4" sap2010:WorkflowViewState.IdRef="NTypeInto_6" ScopeIdentifier="94fcd58d-d6be-4dcf-a646-85f2372a5963" Text="[in_sPriorYear]" Version="V4">
+                <uix:NTypeInto.Target>
+                  <uix:TargetAnchorable BrowserURL="cuvl1301.eur.cchbc.com/irj/servlet/prt/portal/prtroot/pcd!3aportal_content!2fcom.sap.pct!2fplatform_add_ons!2fcom.sap.ip.bi!2fiViews!2fcom.sap.ip.bi.bex" ContentHash="9BfQXyQ0mkKBSNxx9eQ25Q" DesignTimeRectangle="356, 467, 166, 23" DesignTimeScaleFactor="1.25" ElementType="InputBox" FullSelectorArgument="&lt;webctrl id='iframe_Roundtrip_9223372036563636042' tag='IFRAME' /&gt;&lt;webctrl tableRow='17' tag='TABLE' /&gt;&lt;webctrl tag='INPUT' id='DLG_VARIABLE_vsc_cvl_VAR_8_INPUT_inp' name='DLG_VARIABLE_vsc_cvl_VAR_8_INPUT_inp' /&gt;" FuzzySelectorArgument="&lt;webctrl id='iframe_Roundtrip_9223372036563636042' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tag='INPUT' id='DLG_VARIABLE_vsc_cvl_VAR_8_INPUT_inp' name='DLG_VARIABLE_vsc_cvl_VAR_8_INPUT_inp' type='text' class='urEdf2TxtEnbl urEdf2TxtHlp' aaname='' /&gt;" Guid="3dae5819-24b4-4caf-8b7c-226a3d3820ba" InformativeScreenshot="6cffbe3c2ed4f78731f9495487b06406.png" IsResponsive="True" Reference="kc-tb9gKTUqcNWjdsbFj2Q/8YlPGBnmYEKIl54g2UY2DA" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='WID1778762756489' title='BEx Web' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V4" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                        <uix:Target DesignTimeRectangle="84, 471, 189, 16" ElementType="Text" FuzzySelectorArgument="&lt;webctrl id='iframe_Roundtrip_9223372036563636042' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl aaname='Fiscal Year 2 (single, required)' type='' tag='SPAN' class='urTxtStd' check:innerText='Fiscal Year 2 (single, required)' /&gt;" Guid="c186ac3f-5ae4-4061-b487-a708e3d6fc67" SearchSteps="FuzzySelector" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NTypeInto.Target>
+              </uix:NTypeInto>
+              <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Planning Session 2 (sin…'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="492.8,250.4" sap2010:WorkflowViewState.IdRef="NTypeInto_7" ScopeIdentifier="94fcd58d-d6be-4dcf-a646-85f2372a5963" Text="[in_sPriorYear]" Version="V4">
+                <uix:NTypeInto.Target>
+                  <uix:TargetAnchorable BrowserURL="cuvl1301.eur.cchbc.com/irj/servlet/prt/portal/prtroot/pcd!3aportal_content!2fcom.sap.pct!2fplatform_add_ons!2fcom.sap.ip.bi!2fiViews!2fcom.sap.ip.bi.bex" ContentHash="J4w8daoqiEmLV72CJMIkxw" DesignTimeRectangle="356, 494, 166, 22" DesignTimeScaleFactor="1.25" ElementType="InputBox" FullSelectorArgument="&lt;webctrl id='iframe_Roundtrip_9223372036563636042' tag='IFRAME' /&gt;&lt;webctrl tableRow='19' tag='TABLE' /&gt;&lt;webctrl tag='INPUT' id='DLG_VARIABLE_vsc_cvl_VAR_9_INPUT_inp' name='DLG_VARIABLE_vsc_cvl_VAR_9_INPUT_inp' /&gt;" FuzzySelectorArgument="&lt;webctrl id='iframe_Roundtrip_9223372036563636042' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tag='INPUT' id='DLG_VARIABLE_vsc_cvl_VAR_9_INPUT_inp' name='DLG_VARIABLE_vsc_cvl_VAR_9_INPUT_inp' type='text' class='urEdf2TxtEnbl urEdf2TxtHlp' aaname='' /&gt;" Guid="d58e9855-a631-4bca-826e-ffde1f00ee4b" InformativeScreenshot="d0474e562c35eb6d71fa602e0805d099.png" IsResponsive="True" Reference="kc-tb9gKTUqcNWjdsbFj2Q/V0XAy0S33USZXKjkHa5Owg" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='WID1778762756489' title='BEx Web' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V4" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                        <uix:Target DesignTimeRectangle="84, 497, 228, 16" ElementType="Text" FuzzySelectorArgument="&lt;webctrl id='iframe_Roundtrip_9223372036563636042' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' class='urTxtStd' tag='SPAN' aaname='Planning Session 2 (single, required)' check:innerText='Planning Session 2 (single, required)' /&gt;" Guid="08d58cce-5131-4109-84a4-5b3cab801b11" SearchSteps="FuzzySelector" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NTypeInto.Target>
+              </uix:NTypeInto>
+              <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'OK'" sap:VirtualizedContainerService.HintSize="492.8,189.6" sap2010:WorkflowViewState.IdRef="NClick_4" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="94fcd58d-d6be-4dcf-a646-85f2372a5963" Version="V4">
+                <uix:NClick.Target>
+                  <uix:TargetAnchorable BrowserURL="cuvl1301.eur.cchbc.com/irj/servlet/prt/portal/prtroot/pcd!3aportal_content!2fcom.sap.pct!2fplatform_add_ons!2fcom.sap.ip.bi!2fiViews!2fcom.sap.ip.bi.bex" ContentHash="BdewFqzrK0uTEkuO9dSvgQ" DesignTimeRectangle="43, 999, 41, 20" DesignTimeScaleFactor="1.25" ElementType="Text" FullSelectorArgument="&lt;webctrl id='iframe_Roundtrip_9223372036563636042' tag='IFRAME' /&gt;&lt;webctrl id='DLG_VARIABLE_dlgBase_MATRLayout' tableRow='1' tag='TABLE' /&gt;&lt;webctrl id='DLG_VARIABLE_dlgBase_BTNOK' tableRow='65' tag='A' /&gt;" Guid="6d8be065-a17b-486c-9af5-a506ef83568f" InformativeScreenshot="e5d2bd020d01a2db992d259147c7b364.png" Reference="kc-tb9gKTUqcNWjdsbFj2Q/c4DP8Z1X10W6LaqmmNvRdA" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='WID1778762756489' title='BEx Web' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
+                </uix:NClick.Target>
+              </uix:NClick>
+              <uix:NCheckState DisplayName="Check App State 'Export to Microsoft Exc…'" EnableIfNotExists="False" sap:VirtualizedContainerService.HintSize="492.8,523.2" sap2010:WorkflowViewState.IdRef="NCheckState_2" ScopeIdentifier="94fcd58d-d6be-4dcf-a646-85f2372a5963" Timeout="60" Version="V4">
+                <uix:NCheckState.IfExists>
+                  <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="449.6,280" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Export to Microsoft Exc…(1)'" sap:VirtualizedContainerService.HintSize="416,218.4" sap2010:WorkflowViewState.IdRef="NClick_5" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="94fcd58d-d6be-4dcf-a646-85f2372a5963" Version="V4">
+                      <uix:NClick.Target>
+                        <uix:TargetAnchorable BrowserURL="cuvl1301.eur.cchbc.com/irj/servlet/prt/portal/prtroot/pcd!3aportal_content!2fcom.sap.pct!2fplatform_add_ons!2fcom.sap.ip.bi!2fiViews!2fcom.sap.ip.bi.bex" ContentHash="CFll5RTEqkCgZ8PJVN7acA" DesignTimeRectangle="808, 180, 170, 20" DesignTimeScaleFactor="1.25" ElementType="Text" FullSelectorArgument="&lt;webctrl id='iframe_Roundtrip_9223372036563636042' tag='IFRAME' /&gt;&lt;webctrl id='CONTAINER_LAYOUT_TOOLBAR_matrixLayout_gridMatrix' tableRow='1' tag='TABLE' /&gt;&lt;webctrl aaname='Export to Microsoft Excel' tableRow='1' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl id='iframe_Roundtrip_9223372036563636042' tag='IFRAME' /&gt;&lt;webctrl id='CONTAINER_LAYOUT_TOOLBAR_matrixLayout_gridMatrix' tag='TABLE' /&gt;&lt;webctrl aaname='Export to Microsoft Excel' type='' tag='A' class='urBtnStd' check:innerText='Export to Microsoft Excel' /&gt;" Guid="14b05146-1f9c-49d6-8022-b592e553f601" InformativeScreenshot="036afc29df79c6f4c77be74f66f7a7e8.png" Reference="kc-tb9gKTUqcNWjdsbFj2Q/Zf3IytwZDU2JBpliZhUKFA" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='WID1778762756489' title='BEx Web - Extended Default Ad-hoc Analysis BI 7.0' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V4" Visibility="Interactive" />
+                      </uix:NClick.Target>
+                      <uix:NClick.VerifyOptions>
+                        <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                          <uix:VerifyExecutionOptions.Retry>
+                            <InArgument x:TypeArguments="x:Boolean" />
+                          </uix:VerifyExecutionOptions.Retry>
+                          <uix:VerifyExecutionOptions.Timeout>
+                            <InArgument x:TypeArguments="x:Double" />
+                          </uix:VerifyExecutionOptions.Timeout>
+                        </uix:VerifyExecutionOptions>
+                      </uix:NClick.VerifyOptions>
+                    </uix:NClick>
+                  </Sequence>
+                </uix:NCheckState.IfExists>
+                <uix:NCheckState.IfNotExists>
+                  <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="449.6,91.2" sap2010:WorkflowViewState.IdRef="Sequence_19">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </Sequence>
+                </uix:NCheckState.IfNotExists>
+                <uix:NCheckState.Target>
+                  <uix:TargetAnchorable BrowserURL="cuvl1301.eur.cchbc.com/irj/servlet/prt/portal/prtroot/pcd!3aportal_content!2fcom.sap.pct!2fplatform_add_ons!2fcom.sap.ip.bi!2fiViews!2fcom.sap.ip.bi.bex" ContentHash="jOIxhZO-ukS9yrsoOKAQ-A" DesignTimeRectangle="808, 180, 170, 20" DesignTimeScaleFactor="1.25" ElementType="Text" FullSelectorArgument="&lt;webctrl id='iframe_Roundtrip_9223372036563636042' tag='IFRAME' /&gt;&lt;webctrl id='CONTAINER_LAYOUT_TOOLBAR_matrixLayout_gridMatrix' tableRow='1' tag='TABLE' /&gt;&lt;webctrl aaname='Export to Microsoft Excel' tableRow='1' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl id='iframe_Roundtrip_9223372036563636042' tag='IFRAME' /&gt;&lt;webctrl id='CONTAINER_LAYOUT_TOOLBAR_matrixLayout_gridMatrix' tag='TABLE' /&gt;&lt;webctrl aaname='Export to Microsoft Excel' type='' tag='A' class='urBtnStd' check:innerText='Export to Microsoft Excel' /&gt;" Guid="07776776-8cee-4f66-9ed5-4af92967fb19" InformativeScreenshot="25189006b09a8a3cd54b82d2c38b7ae6.png" Reference="kc-tb9gKTUqcNWjdsbFj2Q/TeiOFqY-MkqEvgEcLkfj5Q" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='WID1778762756489' title='BEx Web - Extended Default Ad-hoc Analysis BI 7.0' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V4" Visibility="Interactive" />
+                </uix:NCheckState.Target>
+              </uix:NCheckState>
+            </Sequence>
+          </ActivityAction>
+        </uix:NApplicationCard.Body>
+        <uix:NApplicationCard.TargetApp>
+          <uix:TargetApp Area="-9, -9, 1938, 1168" BrowserType="Chrome" ContentHash="4GCHnVZ4u06VaH3xvXFC6A" IconBase64="iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAFgSURBVFhH7ZNBTgMxDEVzE/ZcglPMmqMMN2HHokdhzZ4rdN/FkJfkB8ck7bQVSEh5ktVpYv9ve9owmUwmIbxsvxmPD8s4npaY0yn6i8B8XQ/xmS/Ph22JX97ejyl45qwpKDn+zp7be19vQ+bra8yh4ONz65ISSlGTczpWA+p7kM8wqlc05oCYoMgaIZ6KoplHd6MGhG3ihzmUvDbRrZA7j/JtA/ZMg/CZNHvmkNMyCGgyG3UrbKtsTMK9Bgg1Td4Sh+maQxU3cKb3b9fPmTXkudcAZ9JNWiNzwCB1a34LgiJNYn94EucuNaDa+OkHQmNonskrQxyxauiJ4tpANYlno+aBuwvmeQOaTI1chTGnMRokdkyesesk/AorGMnszMQMcfade0rtRZhKryltqdOEVr7bHCRKkQT8GrPg99+S8Pc2ivReWuFb40Zz6AteE3eYh6DiuyK+jiI3mUz+GyF8AeMJqijDwFYtAAAAAElFTkSuQmCC" InformativeScreenshot="8fda3365ccac09eff48c91c54e27e1cd.jpg" Reference="kc-tb9gKTUqcNWjdsbFj2Q/0DQs4POJyU2f8xpaCiAD9w" Selector="&lt;html app='chrome.exe' htmlwindowname='WID1778762311151' title='BEx Web' /&gt;" Title="BEx Web" Url="http://cuvl1301.eur.cchbc.com:8117/irj/servlet/prt/portal/prtroot/pcd!3aportal_content!2fcom.sap.pct!2fplatform_add_ons!2fcom.sap.ip.bi!2fiViews!2fcom.sap.ip.bi.bex?BOOKMARK=003YQNUOLTP4MHT5FH53JJEO0" Version="V1" />
+        </uix:NApplicationCard.TargetApp>
+      </uix:NApplicationCard>
+      <ui:RetryScope DisplayName="Wait for report to Load " sap:VirtualizedContainerService.HintSize="560,84.8" sap2010:WorkflowViewState.IdRef="RetryScope_4" NumberOfRetries="10" RetryInterval="00:00:05">
+        <ui:RetryScope.ActivityBody>
+          <ActivityAction>
+            <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="416,225.6" sap2010:WorkflowViewState.IdRef="Sequence_14">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:LogMessage DisplayName="Log Message &quot;Waiting for the report to load&quot;" sap:VirtualizedContainerService.HintSize="382.4,165.6" sap2010:WorkflowViewState.IdRef="LogMessage_11" Message="[&quot;Waiting for the report to load&quot;]" />
+            </Sequence>
+          </ActivityAction>
+        </ui:RetryScope.ActivityBody>
+        <ui:RetryScope.Condition>
+          <ActivityFunc x:TypeArguments="x:Boolean">
+            <ui:UiElementExists Exists="{x:Null}" DisplayName="Element Exists chrome.exe  Save As Window" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="UiElementExists_5">
+              <ui:UiElementExists.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="34c95c03-e454-4e80-8c3b-6dd5922b8d54" InformativeScreenshot="ce66e456c0bc1fe459ef4ebf1215856d" Selector="&lt;wnd app='chrome.exe' cls='#32770' title='Save As' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:UiElementExists.Target>
+            </ui:UiElementExists>
+          </ActivityFunc>
+        </ui:RetryScope.Condition>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:RetryScope>
+      <Sequence DisplayName="Download the Report" sap:VirtualizedContainerService.HintSize="560,100.8" sap2010:WorkflowViewState.IdRef="Sequence_5">
+        <Sequence.Variables>
+          <Variable x:TypeArguments="x:Boolean" Name="bOverwrite" />
+          <Variable x:TypeArguments="x:String" Name="sFileName" />
+        </Sequence.Variables>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <Assign DisplayName="Assign sFilePath" sap:VirtualizedContainerService.HintSize="483.2,113.6" sap2010:WorkflowViewState.IdRef="Assign_2">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[sFilePath]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">[in_sDirectoryToSave+"CO012_Filtered"+" Report.xls"]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <ui:RetryScope DisplayName="Retry type file path" sap:VirtualizedContainerService.HintSize="483.2,701.6" sap2010:WorkflowViewState.IdRef="RetryScope_2" NumberOfRetries="5" RetryInterval="00:00:01">
+          <ui:RetryScope.ActivityBody>
+            <ActivityAction>
+              <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="416,378.4" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:TypeInto DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" AlterIfDisabled="True" ClickBeforeTyping="False" DisplayName="Type Into FilePath and Name" EmptyField="True" sap:VirtualizedContainerService.HintSize="382.4,188" sap2010:WorkflowViewState.IdRef="TypeInto_2" SendWindowMessages="False" SimulateType="False" Text="[sFilePath]">
+                  <ui:TypeInto.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="f3dbfde8-fbcb-4fc1-9bcb-755359817a10" InformativeScreenshot="a30aa2216a4f31b296c7e214eef0c7d4" Selector="&lt;wnd app='chrome.exe' cls='#32770' title='Save As' /&gt;&lt;wnd aaname='Explorer Pane' cls='DirectUIHWND' /&gt;&lt;wnd aaname='File name:' cls='ComboBox' /&gt;&lt;wnd ctrlid='1001' /&gt;" WaitForReady="INTERACTIVE">
+                      <ui:Target.TimeoutMS>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:Target.TimeoutMS>
+                    </ui:Target>
+                  </ui:TypeInto.Target>
+                </ui:TypeInto>
+                <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'Edit'" sap:VirtualizedContainerService.HintSize="382.4,130.4" sap2010:WorkflowViewState.IdRef="GetValue_1">
+                  <ui:GetValue.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="9ef5447e-ff23-405a-b19a-e3efa72f3448" InformativeScreenshot="a30aa2216a4f31b296c7e214eef0c7d4" Selector="&lt;wnd app='chrome.exe' cls='#32770' title='Save As' /&gt;&lt;wnd aaname='Explorer Pane' cls='DirectUIHWND' /&gt;&lt;wnd aaname='File name:' cls='ComboBox' /&gt;&lt;wnd ctrlid='1001' /&gt;">
+                      <ui:Target.TimeoutMS>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:Target.TimeoutMS>
+                      <ui:Target.WaitForReady>
+                        <InArgument x:TypeArguments="ui:WaitForReady" />
+                      </ui:Target.WaitForReady>
+                    </ui:Target>
+                  </ui:GetValue.Target>
+                  <ui:GetValue.Value>
+                    <OutArgument x:TypeArguments="x:String">[sFileName]</OutArgument>
+                  </ui:GetValue.Value>
+                </ui:GetValue>
+              </Sequence>
+            </ActivityAction>
+          </ui:RetryScope.ActivityBody>
+          <ui:RetryScope.Condition>
+            <ActivityFunc x:TypeArguments="x:Boolean">
+              <ui:CheckTrue ErrorMessage="{x:Null}" DisplayName="Check True" Expression="[sFileName=sFilePath]" sap:VirtualizedContainerService.HintSize="333.6,131.2" sap2010:WorkflowViewState.IdRef="CheckTrue_1" />
+            </ActivityFunc>
+          </ui:RetryScope.Condition>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </ui:RetryScope>
+        <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" AlterIfDisabled="True" ClickType="CLICK_SINGLE" DisplayName="Click 'Button' Save" sap:VirtualizedContainerService.HintSize="483.2,139.2" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
+          <ui:Click.CursorPosition>
+            <ui:CursorPosition OffsetX="57" OffsetY="9" Position="TopLeft" />
+          </ui:Click.CursorPosition>
+          <ui:Click.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="0efcb496-df77-4081-b6a0-69a6ba21b7ab" InformativeScreenshot="8f9cb25eb8187031a5eb7e39d005c137" Selector="&lt;wnd app='chrome.exe' cls='#32770' title='Save As' /&gt;&lt;wnd ctrlid='1' title='&amp;amp;Save' /&gt;" WaitForReady="INTERACTIVE">
+              <ui:Target.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:Target.TimeoutMS>
+            </ui:Target>
+          </ui:Click.Target>
+        </ui:Click>
+        <ui:UiElementExists DisplayName="Element Exists What to Replace?" Exists="[bOverwrite]" sap:VirtualizedContainerService.HintSize="483.2,139.2" sap2010:WorkflowViewState.IdRef="UiElementExists_2">
+          <ui:UiElementExists.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="4aea0066-5943-4137-91e1-76bafe4734c8" InformativeScreenshot="495d1feb01754a51f78b115d698ee122" Selector="&lt;wnd app='chrome.exe' cls='#32770' title='Confirm Save As' /&gt;&lt;wnd aaname='Confirm Save As' cls='DirectUIHWND' /&gt;" TimeoutMS="1500" WaitForReady="INTERACTIVE" />
+          </ui:UiElementExists.Target>
+        </ui:UiElementExists>
+        <If Condition="[bOverwrite]" DisplayName="If there is an Overwrite message" sap:VirtualizedContainerService.HintSize="483.2,822.4" sap2010:WorkflowViewState.IdRef="If_6">
+          <If.Then>
+            <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Attach Window-Confirm" sap:VirtualizedContainerService.HintSize="449.6,473.6" sap2010:WorkflowViewState.IdRef="WindowScope_1" Selector="&lt;html app='chrome.exe' /&gt;">
+              <ui:WindowScope.Body>
+                <ActivityAction x:TypeArguments="x:Object">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="416,364.8" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" AlterIfDisabled="True" ClickType="CLICK_SINGLE" DisplayName="Click 'Button'" sap:VirtualizedContainerService.HintSize="382.4,139.2" sap2010:WorkflowViewState.IdRef="Click_3" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
+                      <ui:Click.CursorPosition>
+                        <ui:CursorPosition OffsetX="39" OffsetY="12" Position="TopLeft" />
+                      </ui:Click.CursorPosition>
+                      <ui:Click.Target>
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="a9dd679e-8fb1-4b8c-90df-059057960a62" InformativeScreenshot="86abdc6c3a4d08d9814265d9f920e534" Selector="&lt;wnd app='chrome.exe' cls='#32770' title='Confirm Save As' /&gt;&lt;wnd aaname='Confirm Save As' cls='DirectUIHWND' /&gt;&lt;wnd aaname='Yes' cls='Button' title='&amp;amp;Yes' /&gt;" WaitForReady="INTERACTIVE">
+                          <ui:Target.TimeoutMS>
+                            <InArgument x:TypeArguments="x:Int32" />
+                          </ui:Target.TimeoutMS>
+                        </ui:Target>
+                      </ui:Click.Target>
+                    </ui:Click>
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="382.4,165.6" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[&quot;File has been overwritten&quot;]" />
+                  </Sequence>
+                </ActivityAction>
+              </ui:WindowScope.Body>
+            </ui:WindowScope>
+          </If.Then>
+          <If.Else>
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334.4,142.4" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[&quot;New file has been downloaded&quot;]" />
+          </If.Else>
+        </If>
+      </Sequence>
+      <ui:InterruptibleDoWhile CurrentIndex="{x:Null}" Condition="[bFileExists=False]" DisplayName="Do While" sap:VirtualizedContainerService.HintSize="560,84.8" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_1" MaxIterations="20">
+        <ui:InterruptibleDoWhile.Body>
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="416,384" sap2010:WorkflowViewState.IdRef="Sequence_12">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <Delay sap2010:Annotation.AnnotationText="Robot is extracting the whole BG database and extract need time to properly download" DisplayName="Delay 30 sec." Duration="00:00:30" sap:VirtualizedContainerService.HintSize="382.4,166.4" sap2010:WorkflowViewState.IdRef="Delay_1">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </Delay>
+            <ui:FileExistsX DisplayName="File Exists" Exists="[bFileExists]" sap:VirtualizedContainerService.HintSize="382.4,157.6" sap2010:WorkflowViewState.IdRef="FileExistsX_1" Path="[sFilePath]" />
+          </Sequence>
+        </ui:InterruptibleDoWhile.Body>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:InterruptibleDoWhile>
+      <c:CCH_Clear_Environment DisplayName="CCH Clear Environment" sap:VirtualizedContainerService.HintSize="560,122.4" sap2010:WorkflowViewState.IdRef="CCH_Clear_Environment_1" in_arrAppsToKill="[{&quot;chrome&quot;}]" />
+      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="560,165.6" sap2010:WorkflowViewState.IdRef="LogMessage_9" Message="[&quot;End BW Export &quot;]" />
+    </Sequence>
+  </Sequence>
+</Activity>

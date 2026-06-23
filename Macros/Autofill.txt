@@ -1,0 +1,21 @@
+Sub AutoFill_StopBeforeGrandTotal()
+
+    Dim ws As Worksheet
+    Dim lastRow As Long, grandTotalRow As Long, r As Long
+
+    Set ws = ThisWorkbook.Worksheets("Reco_FI vs COPA")
+    lastRow = ws.Cells(ws.Rows.Count, "A").End(xlUp).Row
+
+    grandTotalRow = 0
+    For r = 6 To lastRow
+        If LCase(Trim(ws.Cells(r, "A").Value)) Like "*grand total*" Then
+            grandTotalRow = r
+            Exit For
+        End If
+    Next r
+
+    If grandTotalRow = 0 Then Exit Sub 'not found
+
+    ws.Range("E6:F6").AutoFill Destination:=ws.Range("E6:F" & grandTotalRow - 1)
+
+End Sub
