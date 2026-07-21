@@ -129,7 +129,7 @@
       <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="DataToBeUploaded" sap:VirtualizedContainerService.HintSize="2178,5536" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="DataToBeUploaded" sap:VirtualizedContainerService.HintSize="1153.6000000000001,5538.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="data_DataToBeUploaded" />
       <Variable x:TypeArguments="x:Boolean" Name="bMissingEAN" />
@@ -139,7 +139,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence DisplayName="Data to be uploaded" sap:VirtualizedContainerService.HintSize="706,5513" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <Sequence DisplayName="Data to be uploaded" sap:VirtualizedContainerService.HintSize="705.6,5515.2" sap2010:WorkflowViewState.IdRef="Sequence_2">
       <Sequence.Variables>
         <Variable x:TypeArguments="sd:DataTable" Name="data_ProductPlacement" />
         <Variable x:TypeArguments="sd:DataTable" Name="data_Missing" />
@@ -149,9 +149,9 @@
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="672,173" sap2010:WorkflowViewState.IdRef="LogMessage_3" Message="[&quot;Start Data to be uploaded&quot;]" />
-      <ui:ReadCsvFile PathResource="{x:Null}" DataTable="[data_ProductPlacement]" Delimitator="Comma" DelimitatorForViewModel="Comma" DisplayName="Read CSV" FilePath="[in_sTempPath+&quot;Product placement template.csv&quot;]" sap:VirtualizedContainerService.HintSize="672,186" sap2010:WorkflowViewState.IdRef="ReadCsvFile_1" IncludeColumnNames="False" />
-      <Assign sap:VirtualizedContainerService.HintSize="672,115" sap2010:WorkflowViewState.IdRef="Assign_2">
+      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="672,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_3" Message="[&quot;Start Data to be uploaded&quot;]" />
+      <ui:ReadCsvFile PathResource="{x:Null}" DataTable="[data_ProductPlacement]" Delimitator="Tab" DelimitatorForViewModel="Tab" DisplayName="Read CSV" FilePath="[in_sTempPath+&quot;Product placement template.csv&quot;]" sap:VirtualizedContainerService.HintSize="672,187.2" sap2010:WorkflowViewState.IdRef="ReadCsvFile_1" IncludeColumnNames="False" />
+      <Assign sap:VirtualizedContainerService.HintSize="672,115.2" sap2010:WorkflowViewState.IdRef="Assign_2">
         <Assign.To>
           <OutArgument x:TypeArguments="sd:DataTable">[data_ProductPlacement]</OutArgument>
         </Assign.To>
@@ -165,7 +165,7 @@
       </Assign>
       <If Condition="[data_ProductPlacement.ColumnCount &gt; 1]" DisplayName="If number of column in data_ProductPlacement is more than one , remove the second column" sap:VirtualizedContainerService.HintSize="672,360" sap2010:WorkflowViewState.IdRef="If_7">
         <If.Then>
-          <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="468,165" sap2010:WorkflowViewState.IdRef="Sequence_45">
+          <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="467.2,164.8" sap2010:WorkflowViewState.IdRef="Sequence_45">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>

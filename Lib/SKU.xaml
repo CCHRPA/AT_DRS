@@ -110,7 +110,7 @@
       <AssemblyReference>System.Linq.Expressions</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="SKU" sap:VirtualizedContainerService.HintSize="2196.8,1146.84" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="SKU" sap:VirtualizedContainerService.HintSize="1153.6000000000001,3526.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="data_DRS" />
       <Variable x:TypeArguments="sd:DataTable" Name="data_DRS_CoPack" />
@@ -120,8 +120,8 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="448.8,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_1" Message="[&quot;Start SKU dashboard operations&quot;]" />
-    <ueab:ExcelProcessScopeX DisplayAlerts="{x:Null}" ExistingProcessAction="{x:Null}" FileConflictResolution="{x:Null}" LaunchMethod="{x:Null}" LaunchTimeout="{x:Null}" MacroSettings="{x:Null}" ProcessMode="{x:Null}" ShowExcelWindow="{x:Null}" DisplayName="Reading DRS 2025 and DRS_CoPacking 2025 from SKU Dashboard" sap:VirtualizedContainerService.HintSize="448.8,56.8" sap2010:WorkflowViewState.IdRef="ExcelProcessScopeX_1">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="577.6,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_1" Message="[&quot;Start SKU dashboard operations&quot;]" />
+    <ueab:ExcelProcessScopeX DisplayAlerts="{x:Null}" ExistingProcessAction="{x:Null}" FileConflictResolution="{x:Null}" LaunchMethod="{x:Null}" LaunchTimeout="{x:Null}" MacroSettings="{x:Null}" ProcessMode="{x:Null}" ShowExcelWindow="{x:Null}" DisplayName="Reading DRS and DRS_CoPacking from SKU Dashboard" sap:VirtualizedContainerService.HintSize="577.6,988.8" sap2010:WorkflowViewState.IdRef="ExcelProcessScopeX_1">
       <ueab:ExcelProcessScopeX.Body>
         <ActivityAction x:TypeArguments="ui:IExcelProcess">
           <ActivityAction.Argument>
@@ -145,8 +145,8 @@
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ueab:ReadRangeX DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="443.2,201.6" sap2010:WorkflowViewState.IdRef="ReadRangeX_1" Range="[Excel.Sheet(&quot;DRS 2025&quot;)]" ReadFormatting="RawValue" SaveTo="[data_DRS]" VisibleOnly="False" />
-                    <ueab:ReadRangeX DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="443.2,192.8" sap2010:WorkflowViewState.IdRef="ReadRangeX_2" Range="[Excel.Sheet(&quot;DRS_CoPacking 2025&quot;)]" ReadFormatting="RawValue" SaveTo="[data_DRS_CoPack]" VisibleOnly="False" />
+                    <ueab:ReadRangeX DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="443.2,201.6" sap2010:WorkflowViewState.IdRef="ReadRangeX_1" Range="[Excel.Sheet(&quot;DRS&quot;)]" ReadFormatting="RawValue" SaveTo="[data_DRS]" VisibleOnly="False" />
+                    <ueab:ReadRangeX DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="443.2,192.8" sap2010:WorkflowViewState.IdRef="ReadRangeX_2" Range="[Excel.Sheet(&quot;DRS_CoPacking&quot;)]" ReadFormatting="RawValue" SaveTo="[data_DRS_CoPack]" VisibleOnly="False" />
                   </Sequence>
                 </ActivityAction>
               </ueab:ExcelApplicationCard.Body>
@@ -156,12 +156,12 @@
       </ueab:ExcelProcessScopeX.Body>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ueab:ExcelProcessScopeX>
-    <ueab:ExcelProcessScopeX DisplayAlerts="{x:Null}" ExistingProcessAction="{x:Null}" FileConflictResolution="{x:Null}" LaunchMethod="{x:Null}" LaunchTimeout="{x:Null}" MacroSettings="{x:Null}" ProcessMode="{x:Null}" ShowExcelWindow="{x:Null}" DisplayName="Writing DRS 2025 and DRS_CoPacking 2025 to Main File" sap:VirtualizedContainerService.HintSize="448.8,56.8" sap2010:WorkflowViewState.IdRef="ExcelProcessScopeX_2">
+    <ueab:ExcelProcessScopeX DisplayAlerts="{x:Null}" ExistingProcessAction="{x:Null}" FileConflictResolution="{x:Null}" LaunchMethod="{x:Null}" LaunchTimeout="{x:Null}" MacroSettings="{x:Null}" ProcessMode="{x:Null}" ShowExcelWindow="{x:Null}" DisplayName="Writing DRS and DRS_CoPacking to Main File" sap:VirtualizedContainerService.HintSize="577.6,1087.2" sap2010:WorkflowViewState.IdRef="ExcelProcessScopeX_2">
       <ueab:ExcelProcessScopeX.Body>
         <ActivityAction x:TypeArguments="ui:IExcelProcess">
           <ActivityAction.Argument>
@@ -188,8 +188,8 @@
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ueab:WriteRangeX Destination="[Excel.Sheet(&quot;DRS 2025&quot;)]" DisplayName="Write DataTable to Excel" sap:VirtualizedContainerService.HintSize="443.2,192" sap2010:WorkflowViewState.IdRef="WriteRangeX_1" IgnoreEmptySource="False" Source="[data_DRS]" />
-                    <ueab:WriteRangeX Destination="[Excel.Sheet(&quot;DRS_CoPacking 2025&quot;)]" DisplayName="Write DataTable to Excel" sap:VirtualizedContainerService.HintSize="443.2,192" sap2010:WorkflowViewState.IdRef="WriteRangeX_2" IgnoreEmptySource="False" Source="[data_DRS_CoPack]" />
+                    <ueab:WriteRangeX Destination="[Excel.Sheet(&quot;DRS&quot;)]" DisplayName="Write DataTable to Excel" sap:VirtualizedContainerService.HintSize="443.2,192" sap2010:WorkflowViewState.IdRef="WriteRangeX_1" IgnoreEmptySource="False" Source="[data_DRS]" />
+                    <ueab:WriteRangeX Destination="[Excel.Sheet(&quot;DRS_CoPacking&quot;)]" DisplayName="Write DataTable to Excel" sap:VirtualizedContainerService.HintSize="443.2,192" sap2010:WorkflowViewState.IdRef="WriteRangeX_2" IgnoreEmptySource="False" Source="[data_DRS_CoPack]" />
                     <ueab:SaveExcelFileX DisplayName="Save Excel File" sap:VirtualizedContainerService.HintSize="443.2,108.8" sap2010:WorkflowViewState.IdRef="SaveExcelFileX_1" Workbook="[Excel]" />
                   </Sequence>
                 </ActivityAction>
@@ -200,12 +200,12 @@
       </ueab:ExcelProcessScopeX.Body>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ueab:ExcelProcessScopeX>
-    <ueab:ExcelProcessScopeX DisplayAlerts="{x:Null}" ExistingProcessAction="{x:Null}" FileConflictResolution="{x:Null}" LaunchMethod="{x:Null}" LaunchTimeout="{x:Null}" MacroSettings="{x:Null}" ProcessMode="{x:Null}" ShowExcelWindow="{x:Null}" DisplayName="Writing DRS 2025 and DRS_CoPacking 2025 to EWP File" sap:VirtualizedContainerService.HintSize="448.8,56.8" sap2010:WorkflowViewState.IdRef="ExcelProcessScopeX_3">
+    <ueab:ExcelProcessScopeX DisplayAlerts="{x:Null}" ExistingProcessAction="{x:Null}" FileConflictResolution="{x:Null}" LaunchMethod="{x:Null}" LaunchTimeout="{x:Null}" MacroSettings="{x:Null}" ProcessMode="{x:Null}" ShowExcelWindow="{x:Null}" DisplayName="Writing DRS and DRS_CoPacking to EWP File" sap:VirtualizedContainerService.HintSize="577.6,1087.2" sap2010:WorkflowViewState.IdRef="ExcelProcessScopeX_3">
       <ueab:ExcelProcessScopeX.Body>
         <ActivityAction x:TypeArguments="ui:IExcelProcess">
           <ActivityAction.Argument>
@@ -229,8 +229,8 @@
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ueab:WriteRangeX Destination="[Excel.Sheet(&quot;DRS 2025&quot;)]" DisplayName="Write DataTable to Excel" sap:VirtualizedContainerService.HintSize="443.2,192" sap2010:WorkflowViewState.IdRef="WriteRangeX_3" IgnoreEmptySource="False" Source="[data_DRS]" />
-                    <ueab:WriteRangeX Destination="[Excel.Sheet(&quot;DRS_CoPacking 2025&quot;)]" DisplayName="Write DataTable to Excel" sap:VirtualizedContainerService.HintSize="443.2,192" sap2010:WorkflowViewState.IdRef="WriteRangeX_4" IgnoreEmptySource="False" Source="[data_DRS_CoPack]" />
+                    <ueab:WriteRangeX Destination="[Excel.Sheet(&quot;DRS&quot;)]" DisplayName="Write DataTable to Excel" sap:VirtualizedContainerService.HintSize="443.2,192" sap2010:WorkflowViewState.IdRef="WriteRangeX_3" IgnoreEmptySource="False" Source="[data_DRS]" />
+                    <ueab:WriteRangeX Destination="[Excel.Sheet(&quot;DRS_CoPacking&quot;)]" DisplayName="Write DataTable to Excel" sap:VirtualizedContainerService.HintSize="443.2,192" sap2010:WorkflowViewState.IdRef="WriteRangeX_4" IgnoreEmptySource="False" Source="[data_DRS_CoPack]" />
                     <ueab:SaveExcelFileX DisplayName="Save Excel File" sap:VirtualizedContainerService.HintSize="443.2,108.8" sap2010:WorkflowViewState.IdRef="SaveExcelFileX_2" Workbook="[Excel]" />
                   </Sequence>
                 </ActivityAction>
@@ -241,11 +241,11 @@
       </ueab:ExcelProcessScopeX.Body>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ueab:ExcelProcessScopeX>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="448.8,165.6" sap2010:WorkflowViewState.IdRef="LogMessage_2" Message="[&quot;End SKU dashboard operations&quot;]" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="577.6,165.6" sap2010:WorkflowViewState.IdRef="LogMessage_2" Message="[&quot;End SKU dashboard operations&quot;]" />
   </Sequence>
 </Activity>
